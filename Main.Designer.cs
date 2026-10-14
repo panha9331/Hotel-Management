@@ -228,7 +228,7 @@
             panel1.Location = new Point(0, 78);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(260, 795);
+            panel1.Size = new Size(260, 900);
             panel1.TabIndex = 1;
             // 
             // btReservation
@@ -333,7 +333,7 @@
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(4, 713);
+            panel4.Location = new Point(4, 818);
             panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
             panel4.Size = new Size(260, 78);
@@ -378,14 +378,14 @@
             pnlContent.ForeColor = SystemColors.ControlText;
             pnlContent.Location = new Point(260, 78);
             pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(1322, 795);
+            pnlContent.Size = new Size(1322, 900);
             pnlContent.TabIndex = 2;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1582, 873);
+            ClientSize = new Size(1582, 978);
             Controls.Add(pnlContent);
             Controls.Add(panel1);
             Controls.Add(kryptonPanel1);

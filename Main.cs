@@ -1,3 +1,5 @@
+using Hotel_Management.RoomManagement;
+
 namespace Hotel_Management
 {
     public partial class Main : Form
@@ -37,7 +39,7 @@ namespace Hotel_Management
 
         private void btRoom_Click(object sender, EventArgs e)
         {
-            LoadControl(new DashboardControl());
+            LoadControl(new RoomControl());
             lblPageTitle.Text = "Room Management";
 
         }
