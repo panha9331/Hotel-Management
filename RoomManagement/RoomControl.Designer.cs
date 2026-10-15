@@ -64,7 +64,6 @@
             kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
             comboBox3 = new ComboBox();
             comboBox5 = new ComboBox();
-            comboBox4 = new ComboBox();
             materialButton2 = new MaterialSkin.Controls.MaterialButton();
             kryptonListBox1 = new Krypton.Toolkit.KryptonListBox();
             materialCard7 = new MaterialSkin.Controls.MaterialCard();
@@ -73,7 +72,6 @@
             label19 = new Label();
             label18 = new Label();
             label17 = new Label();
-            comboBox8 = new ComboBox();
             materialCard1.SuspendLayout();
             materialCard2.SuspendLayout();
             materialCard5.SuspendLayout();
@@ -283,7 +281,7 @@
             numericUpDown1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             numericUpDown1.Location = new Point(34, 349);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(336, 34);
+            numericUpDown1.Size = new Size(321, 34);
             numericUpDown1.TabIndex = 4;
             numericUpDown1.Value = new decimal(new int[] { 20, 0, 0, 0 });
             // 
@@ -296,9 +294,9 @@
             comboBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Double ($30/night)", "Single ($20/night)", "Suit ($40/night)", "Twin ($35/night)", "VIP ($50/night)" });
-            comboBox2.Location = new Point(32, 261);
+            comboBox2.Location = new Point(29, 261);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(344, 36);
+            comboBox2.Size = new Size(326, 36);
             comboBox2.Sorted = true;
             comboBox2.TabIndex = 4;
             comboBox2.Text = "Single ($20/night)";
@@ -314,7 +312,7 @@
             comboBox1.Items.AddRange(new object[] { "Anvailable", "Maintenece", "Occupied", "Reserved" });
             comboBox1.Location = new Point(35, 432);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(344, 36);
+            comboBox1.Size = new Size(320, 36);
             comboBox1.Sorted = true;
             comboBox1.TabIndex = 4;
             comboBox1.Text = "Anvailable";
@@ -322,7 +320,7 @@
             // kryptonButton1
             // 
             kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
-            kryptonButton1.Location = new Point(221, 496);
+            kryptonButton1.Location = new Point(200, 496);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.Size = new Size(158, 36);
             kryptonButton1.StateCommon.Border.Rounding = 4F;
@@ -338,7 +336,7 @@
             materialButton4.Depth = 0;
             materialButton4.HighEmphasis = true;
             materialButton4.Icon = null;
-            materialButton4.Location = new Point(221, 550);
+            materialButton4.Location = new Point(200, 550);
             materialButton4.Margin = new Padding(4, 6, 4, 6);
             materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton4.Name = "materialButton4";
@@ -415,7 +413,7 @@
             kryptonMaskedTextBox1.Cursor = Cursors.IBeam;
             kryptonMaskedTextBox1.Location = new Point(29, 178);
             kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
-            kryptonMaskedTextBox1.Size = new Size(347, 38);
+            kryptonMaskedTextBox1.Size = new Size(326, 38);
             kryptonMaskedTextBox1.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
             kryptonMaskedTextBox1.StateActive.Border.Rounding = 8F;
             kryptonMaskedTextBox1.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
@@ -438,9 +436,9 @@
             // txtRoomId
             // 
             txtRoomId.Cursor = Cursors.IBeam;
-            txtRoomId.Location = new Point(24, 95);
+            txtRoomId.Location = new Point(27, 95);
             txtRoomId.Name = "txtRoomId";
-            txtRoomId.Size = new Size(347, 38);
+            txtRoomId.Size = new Size(328, 38);
             txtRoomId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
             txtRoomId.StateActive.Border.Rounding = 8F;
             txtRoomId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
@@ -465,9 +463,9 @@
             label12.AutoSize = true;
             label12.Location = new Point(19, 44);
             label12.Name = "label12";
-            label12.Size = new Size(360, 23);
+            label12.Size = new Size(339, 23);
             label12.TabIndex = 3;
-            label12.Text = "--------------------------------------------------";
+            label12.Text = "-----------------------------------------------";
             // 
             // label13
             // 
@@ -504,7 +502,6 @@
             materialCard6.Controls.Add(kryptonRichTextBox1);
             materialCard6.Controls.Add(comboBox3);
             materialCard6.Controls.Add(comboBox5);
-            materialCard6.Controls.Add(comboBox4);
             materialCard6.Controls.Add(materialButton2);
             materialCard6.Depth = 0;
             materialCard6.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -525,6 +522,8 @@
             kryptonRichTextBox1.Size = new Size(364, 36);
             kryptonRichTextBox1.StateActive.Border.Color1 = Color.Red;
             kryptonRichTextBox1.StateActive.Border.Rounding = 8F;
+            kryptonRichTextBox1.StateNormal.Border.Color1 = Color.FromArgb(128, 255, 128);
+            kryptonRichTextBox1.StateNormal.Border.Rounding = 8F;
             kryptonRichTextBox1.TabIndex = 1;
             kryptonRichTextBox1.Text = "Search by Room ID or Number...";
             // 
@@ -559,22 +558,6 @@
             comboBox5.Sorted = true;
             comboBox5.TabIndex = 4;
             comboBox5.Text = "All Statuses";
-            // 
-            // comboBox4
-            // 
-            comboBox4.AllowDrop = true;
-            comboBox4.Cursor = Cursors.Hand;
-            comboBox4.DisplayMember = "Anvailable";
-            comboBox4.FlatStyle = FlatStyle.System;
-            comboBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "Anvailable", "Maintenece", "Occupied", "Reserved" });
-            comboBox4.Location = new Point(989, 275);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(146, 36);
-            comboBox4.Sorted = true;
-            comboBox4.TabIndex = 4;
-            comboBox4.Text = "Statuses";
             // 
             // materialButton2
             // 
@@ -628,7 +611,6 @@
             materialCard7.Controls.Add(label19);
             materialCard7.Controls.Add(label18);
             materialCard7.Controls.Add(label17);
-            materialCard7.Controls.Add(comboBox8);
             materialCard7.Depth = 0;
             materialCard7.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard7.Location = new Point(456, 351);
@@ -689,22 +671,6 @@
             label17.TabIndex = 5;
             label17.Text = "ROOM ID";
             // 
-            // comboBox8
-            // 
-            comboBox8.AllowDrop = true;
-            comboBox8.Cursor = Cursors.Hand;
-            comboBox8.DisplayMember = "Anvailable";
-            comboBox8.FlatStyle = FlatStyle.System;
-            comboBox8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Items.AddRange(new object[] { "Anvailable", "Maintenece", "Occupied", "Reserved" });
-            comboBox8.Location = new Point(989, 275);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new Size(146, 36);
-            comboBox8.Sorted = true;
-            comboBox8.TabIndex = 4;
-            comboBox8.Text = "Statuses";
-            // 
             // RoomControl
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -721,7 +687,7 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "RoomControl";
-            Size = new Size(1322, 900);
+            Size = new Size(1307, 900);
             Load += RoomControl_Load;
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
@@ -739,6 +705,8 @@
             materialCard7.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+            //ResumeLayout(false);
+            //PerformLayout();
         }
 
         #endregion
@@ -780,7 +748,6 @@
         private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
         private ComboBox comboBox3;
         private ComboBox comboBox5;
-        private ComboBox comboBox4;
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private Krypton.Toolkit.KryptonListBox kryptonListBox1;
         private MaterialSkin.Controls.MaterialCard materialCard7;
@@ -789,6 +756,5 @@
         private Label label19;
         private Label label18;
         private Label label17;
-        private ComboBox comboBox8;
     }
 }

@@ -169,6 +169,8 @@
             kryptonRichTextBox1.Size = new Size(324, 36);
             kryptonRichTextBox1.StateActive.Border.Color1 = Color.FromArgb(128, 255, 128);
             kryptonRichTextBox1.StateActive.Border.Rounding = 8F;
+            kryptonRichTextBox1.StateNormal.Border.Color1 = Color.Red;
+            kryptonRichTextBox1.StateNormal.Border.Rounding = 8F;
             kryptonRichTextBox1.TabIndex = 0;
             kryptonRichTextBox1.Text = "Global Search (Ctrl + /)...";
             // 
@@ -254,6 +256,7 @@
             btReservation.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btReservation.UseAccentColor = false;
             btReservation.UseVisualStyleBackColor = false;
+            btReservation.Click += btReservation_Click;
             // 
             // btCustomer
             // 
@@ -277,6 +280,7 @@
             btCustomer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btCustomer.UseAccentColor = false;
             btCustomer.UseVisualStyleBackColor = false;
+            btCustomer.Click += btCustomer_Click;
             // 
             // btRoom
             // 
