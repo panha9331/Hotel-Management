@@ -320,6 +320,7 @@
             // kryptonButton1
             // 
             kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
+            kryptonButton1.Cursor = Cursors.Hand;
             kryptonButton1.Location = new Point(200, 496);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.Size = new Size(158, 36);
@@ -332,6 +333,7 @@
             // 
             materialButton4.AutoSize = false;
             materialButton4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton4.Cursor = Cursors.Hand;
             materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton4.Depth = 0;
             materialButton4.HighEmphasis = true;
@@ -352,6 +354,7 @@
             // 
             materialButton3.AutoSize = false;
             materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton3.Cursor = Cursors.Hand;
             materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton3.Depth = 0;
             materialButton3.HighEmphasis = true;
@@ -372,6 +375,7 @@
             // 
             materialButton1.AutoSize = false;
             materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Cursor = Cursors.Hand;
             materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
@@ -563,6 +567,7 @@
             // 
             materialButton2.AutoSize = false;
             materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Cursor = Cursors.Hand;
             materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton2.Depth = 0;
             materialButton2.HighEmphasis = true;

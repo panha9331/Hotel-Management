@@ -1,6 +1,9 @@
-﻿namespace Hotel_Management.CustomerManagement
+﻿using System;
+using System.Windows.Forms;
+
+namespace Hotel_Management.Controls
 {
-    partial class CustomerControl
+    public partial class CustomerControl : UserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,6 +38,7 @@
             label18 = new Label();
             internalSearchableExceptionTreeView1 = new Krypton.Toolkit.InternalSearchableExceptionTreeView();
             materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            comboBox1 = new ComboBox();
             kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
             materialButton2 = new MaterialSkin.Controls.MaterialButton();
             kryptonListBox1 = new Krypton.Toolkit.KryptonListBox();
@@ -60,6 +64,8 @@
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
             label16 = new Label();
             label15 = new Label();
+            kryptonMaskedTextBox3 = new Krypton.Toolkit.KryptonMaskedTextBox();
+            kryptonMaskedTextBox2 = new Krypton.Toolkit.KryptonMaskedTextBox();
             kryptonMaskedTextBox1 = new Krypton.Toolkit.KryptonMaskedTextBox();
             label14 = new Label();
             txtRoomId = new Krypton.Toolkit.KryptonMaskedTextBox();
@@ -68,9 +74,6 @@
             label13 = new Label();
             label11 = new Label();
             label1 = new Label();
-            kryptonMaskedTextBox2 = new Krypton.Toolkit.KryptonMaskedTextBox();
-            kryptonMaskedTextBox3 = new Krypton.Toolkit.KryptonMaskedTextBox();
-            comboBox1 = new ComboBox();
             materialCard6.SuspendLayout();
             materialCard7.SuspendLayout();
             materialCard3.SuspendLayout();
@@ -99,6 +102,7 @@
             // kryptonButton1
             // 
             kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
+            kryptonButton1.Cursor = Cursors.Hand;
             kryptonButton1.Location = new Point(200, 496);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.Size = new Size(158, 36);
@@ -111,6 +115,7 @@
             // 
             materialButton4.AutoSize = false;
             materialButton4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton4.Cursor = Cursors.Hand;
             materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton4.Depth = 0;
             materialButton4.HighEmphasis = true;
@@ -131,6 +136,7 @@
             // 
             materialButton3.AutoSize = false;
             materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton3.Cursor = Cursors.Hand;
             materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton3.Depth = 0;
             materialButton3.HighEmphasis = true;
@@ -182,6 +188,22 @@
             materialCard6.Size = new Size(837, 78);
             materialCard6.TabIndex = 7;
             // 
+            // comboBox1
+            // 
+            comboBox1.AllowDrop = true;
+            comboBox1.Cursor = Cursors.Hand;
+            comboBox1.DisplayMember = "Anvailable";
+            comboBox1.FlatStyle = FlatStyle.System;
+            comboBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Female (F)", "Male (M)", "Other (N)" });
+            comboBox1.Location = new Point(586, 23);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(119, 36);
+            comboBox1.Sorted = true;
+            comboBox1.TabIndex = 4;
+            comboBox1.Text = "All Gender";
+            // 
             // kryptonRichTextBox1
             // 
             kryptonRichTextBox1.AlwaysActive = false;
@@ -200,6 +222,7 @@
             // 
             materialButton2.AutoSize = false;
             materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Cursor = Cursors.Hand;
             materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton2.Depth = 0;
             materialButton2.HighEmphasis = true;
@@ -302,6 +325,7 @@
             // 
             materialButton1.AutoSize = false;
             materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Cursor = Cursors.Hand;
             materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
@@ -521,6 +545,36 @@
             label15.TabIndex = 0;
             label15.Text = "Phone Number";
             // 
+            // kryptonMaskedTextBox3
+            // 
+            kryptonMaskedTextBox3.Cursor = Cursors.IBeam;
+            kryptonMaskedTextBox3.Location = new Point(32, 434);
+            kryptonMaskedTextBox3.Name = "kryptonMaskedTextBox3";
+            kryptonMaskedTextBox3.Size = new Size(326, 38);
+            kryptonMaskedTextBox3.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            kryptonMaskedTextBox3.StateActive.Border.Rounding = 8F;
+            kryptonMaskedTextBox3.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            kryptonMaskedTextBox3.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonMaskedTextBox3.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            kryptonMaskedTextBox3.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            kryptonMaskedTextBox3.TabIndex = 4;
+            kryptonMaskedTextBox3.Text = "e.g. example@gmail.com";
+            // 
+            // kryptonMaskedTextBox2
+            // 
+            kryptonMaskedTextBox2.Cursor = Cursors.IBeam;
+            kryptonMaskedTextBox2.Location = new Point(32, 347);
+            kryptonMaskedTextBox2.Name = "kryptonMaskedTextBox2";
+            kryptonMaskedTextBox2.Size = new Size(326, 38);
+            kryptonMaskedTextBox2.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            kryptonMaskedTextBox2.StateActive.Border.Rounding = 8F;
+            kryptonMaskedTextBox2.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            kryptonMaskedTextBox2.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonMaskedTextBox2.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            kryptonMaskedTextBox2.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            kryptonMaskedTextBox2.TabIndex = 4;
+            kryptonMaskedTextBox2.Text = "e.g. 09999XXXX";
+            // 
             // kryptonMaskedTextBox1
             // 
             kryptonMaskedTextBox1.Cursor = Cursors.IBeam;
@@ -610,52 +664,6 @@
             label1.Size = new Size(265, 31);
             label1.TabIndex = 6;
             label1.Text = "Customer Management";
-            // 
-            // kryptonMaskedTextBox2
-            // 
-            kryptonMaskedTextBox2.Cursor = Cursors.IBeam;
-            kryptonMaskedTextBox2.Location = new Point(32, 347);
-            kryptonMaskedTextBox2.Name = "kryptonMaskedTextBox2";
-            kryptonMaskedTextBox2.Size = new Size(326, 38);
-            kryptonMaskedTextBox2.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonMaskedTextBox2.StateActive.Border.Rounding = 8F;
-            kryptonMaskedTextBox2.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox2.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonMaskedTextBox2.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox2.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox2.TabIndex = 4;
-            kryptonMaskedTextBox2.Text = "e.g. 09999XXXX";
-            // 
-            // kryptonMaskedTextBox3
-            // 
-            kryptonMaskedTextBox3.Cursor = Cursors.IBeam;
-            kryptonMaskedTextBox3.Location = new Point(32, 434);
-            kryptonMaskedTextBox3.Name = "kryptonMaskedTextBox3";
-            kryptonMaskedTextBox3.Size = new Size(326, 38);
-            kryptonMaskedTextBox3.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonMaskedTextBox3.StateActive.Border.Rounding = 8F;
-            kryptonMaskedTextBox3.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox3.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonMaskedTextBox3.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox3.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox3.TabIndex = 4;
-            kryptonMaskedTextBox3.Text = "e.g. example@gmail.com";
-            // 
-            // comboBox1
-            // 
-            comboBox1.AllowDrop = true;
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.DisplayMember = "Anvailable";
-            comboBox1.FlatStyle = FlatStyle.System;
-            comboBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Female (F)", "Male (M)", "Other (N)" });
-            comboBox1.Location = new Point(586, 23);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(119, 36);
-            comboBox1.Sorted = true;
-            comboBox1.TabIndex = 4;
-            comboBox1.Text = "All Gender";
             // 
             // CustomerControl
             // 

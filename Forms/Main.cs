@@ -1,4 +1,4 @@
-using Hotel_Management.CustomerManagement;
+using Hotel_Management.Controls;
 using Hotel_Management.ReservationManagement;
 using Hotel_Management.RoomManagement;
 
@@ -9,8 +9,8 @@ namespace Hotel_Management
         public Main()
         {
             InitializeComponent();
-            LoadControl(new DashboardControl());
-            lblPageTitle.Text = "Dashboard Overview";
+            LoadControl(new RoomControl());
+            lblPageTitle.Text = "Room Management";
         }
 
         private void LoadControl(UserControl control)

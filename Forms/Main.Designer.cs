@@ -48,6 +48,7 @@
             btRoom = new MaterialSkin.Controls.MaterialButton();
             btDashboard = new MaterialSkin.Controls.MaterialButton();
             panel4 = new Panel();
+            pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             label4 = new Label();
             label3 = new Label();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
@@ -334,6 +336,7 @@
             // 
             panel4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel4.BackColor = Color.MidnightBlue;
+            panel4.Controls.Add(pictureBox5);
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label3);
@@ -343,8 +346,20 @@
             panel4.Size = new Size(260, 78);
             panel4.TabIndex = 2;
             // 
+            // pictureBox5
+            // 
+            pictureBox5.Cursor = Cursors.Hand;
+            pictureBox5.Image = Properties.Resources.logout;
+            pictureBox5.Location = new Point(198, 16);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(52, 41);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 1;
+            pictureBox5.TabStop = false;
+            // 
             // pictureBox4
             // 
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Image = Properties.Resources.profile;
             pictureBox4.Location = new Point(12, 16);
             pictureBox4.Name = "pictureBox4";
@@ -413,6 +428,7 @@
             panel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
@@ -442,5 +458,6 @@
         private Label label5;
         private Panel panel5;
         private Label lblPageTitle;
+        private PictureBox pictureBox5;
     }
 }

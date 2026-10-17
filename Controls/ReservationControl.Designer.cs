@@ -359,6 +359,7 @@
             // 
             materialButton4.AutoSize = false;
             materialButton4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton4.Cursor = Cursors.Hand;
             materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton4.Depth = 0;
             materialButton4.HighEmphasis = true;
@@ -441,6 +442,7 @@
             // kryptonButton1
             // 
             kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
+            kryptonButton1.Cursor = Cursors.Hand;
             kryptonButton1.Location = new Point(177, 553);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.Size = new Size(134, 36);
@@ -453,6 +455,7 @@
             // 
             materialButton3.AutoSize = false;
             materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton3.Cursor = Cursors.Hand;
             materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton3.Depth = 0;
             materialButton3.HighEmphasis = true;
@@ -473,6 +476,7 @@
             // 
             materialButton1.AutoSize = false;
             materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Cursor = Cursors.Hand;
             materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
@@ -574,7 +578,7 @@
             comboBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Cancelled", "Checked-In", "Checked-Out", "Reserved" });
-            comboBox1.Location = new Point(586, 23);
+            comboBox1.Location = new Point(487, 23);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(119, 36);
             comboBox1.Sorted = true;
@@ -587,7 +591,7 @@
             kryptonRichTextBox1.Cursor = Cursors.IBeam;
             kryptonRichTextBox1.Location = new Point(23, 22);
             kryptonRichTextBox1.Name = "kryptonRichTextBox1";
-            kryptonRichTextBox1.Size = new Size(557, 36);
+            kryptonRichTextBox1.Size = new Size(444, 36);
             kryptonRichTextBox1.StateActive.Border.Color1 = Color.Red;
             kryptonRichTextBox1.StateActive.Border.Rounding = 8F;
             kryptonRichTextBox1.StateNormal.Border.Color1 = Color.FromArgb(128, 255, 128);
@@ -599,11 +603,12 @@
             // 
             materialButton2.AutoSize = false;
             materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Cursor = Cursors.Hand;
             materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton2.Depth = 0;
             materialButton2.HighEmphasis = true;
             materialButton2.Icon = null;
-            materialButton2.Location = new Point(714, 22);
+            materialButton2.Location = new Point(625, 23);
             materialButton2.Margin = new Padding(4, 6, 4, 6);
             materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton2.Name = "materialButton2";

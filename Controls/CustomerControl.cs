@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-
-namespace Hotel_Management.CustomerManagement
+﻿namespace Hotel_Management.Controls
 {
     public partial class CustomerControl : UserControl
     {
