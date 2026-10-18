@@ -1,4 +1,5 @@
 ﻿using System;
+//using Microsoft.Data.SqlClient;
 using System.Data.SqlClient;
 
 namespace Hotel_Management.Data
@@ -10,23 +11,8 @@ namespace Hotel_Management.Data
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
-        }
-
-        static void Main(string[] args)
-        {
-            // The 'using' statement automatically opens and properly disposes/closes the connection
-            using (SqlConnection conn = GetConnection())
-            {
-                try
-                {
-                    conn.Open();
-                    Console.WriteLine("Connection successful!");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            } // conn.Close() and conn.Dispose() are called automatically here
-        }
+        }    
+        
+        public static string Database => "StayEasy";
     }
 }

@@ -1,4 +1,5 @@
 using Hotel_Management.Controls;
+using Hotel_Management.Data;
 using Hotel_Management.ReservationManagement;
 using Hotel_Management.RoomManagement;
 
@@ -11,6 +12,8 @@ namespace Hotel_Management
             InitializeComponent();
             LoadControl(new RoomControl());
             lblPageTitle.Text = "Room Management";
+
+            //DatabaseInitializer.TestConnection();
         }
 
         private void LoadControl(UserControl control)
