@@ -31,55 +31,51 @@
             label1 = new Label();
             label2 = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            label3 = new Label();
+            lbRoomTotal = new Label();
             lbTotalRoom = new Label();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            label4 = new Label();
+            lbAvailableRoom = new Label();
             label5 = new Label();
             materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            label6 = new Label();
+            lbOccupiedRoom = new Label();
             label7 = new Label();
             materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            label8 = new Label();
+            lbMaintenaceRoom = new Label();
             label9 = new Label();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
-            numericUpDown1 = new NumericUpDown();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            materialButton4 = new MaterialSkin.Controls.MaterialButton();
-            materialButton3 = new MaterialSkin.Controls.MaterialButton();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            btRoomUpdate = new Krypton.Toolkit.KryptonButton();
+            pricePerNight = new NumericUpDown();
+            roomType = new ComboBox();
+            roomStatus = new ComboBox();
+            Clear = new MaterialSkin.Controls.MaterialButton();
+            btRoomDelete = new MaterialSkin.Controls.MaterialButton();
+            btRoomAdd = new MaterialSkin.Controls.MaterialButton();
             label16 = new Label();
             label15 = new Label();
-            kryptonMaskedTextBox1 = new Krypton.Toolkit.KryptonMaskedTextBox();
+            roomNumber = new Krypton.Toolkit.KryptonMaskedTextBox();
             label14 = new Label();
-            txtRoomId = new Krypton.Toolkit.KryptonMaskedTextBox();
+            roomId = new Krypton.Toolkit.KryptonMaskedTextBox();
             label10 = new Label();
             label12 = new Label();
             label13 = new Label();
             label11 = new Label();
             internalSearchableExceptionTreeView1 = new Krypton.Toolkit.InternalSearchableExceptionTreeView();
             materialCard6 = new MaterialSkin.Controls.MaterialCard();
-            kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
-            comboBox3 = new ComboBox();
-            comboBox5 = new ComboBox();
-            materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            kryptonListBox1 = new Krypton.Toolkit.KryptonListBox();
+            txtSearch = new Krypton.Toolkit.KryptonRichTextBox();
+            filterType = new ComboBox();
+            filterStatus = new ComboBox();
+            btRoomRest = new MaterialSkin.Controls.MaterialButton();
             materialCard7 = new MaterialSkin.Controls.MaterialCard();
-            label21 = new Label();
-            label20 = new Label();
-            label19 = new Label();
-            label18 = new Label();
-            label17 = new Label();
+            dgvRooms = new DataGridView();
             materialCard1.SuspendLayout();
             materialCard2.SuspendLayout();
             materialCard5.SuspendLayout();
             materialCard3.SuspendLayout();
             materialCard4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pricePerNight).BeginInit();
             materialCard6.SuspendLayout();
             materialCard7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRooms).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -107,7 +103,7 @@
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(label3);
+            materialCard1.Controls.Add(lbRoomTotal);
             materialCard1.Controls.Add(lbTotalRoom);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -119,15 +115,15 @@
             materialCard1.Size = new Size(288, 106);
             materialCard1.TabIndex = 2;
             // 
-            // label3
+            // lbRoomTotal
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(19, 39);
-            label3.Name = "label3";
-            label3.Size = new Size(40, 46);
-            label3.TabIndex = 0;
-            label3.Text = "8";
+            lbRoomTotal.AutoSize = true;
+            lbRoomTotal.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbRoomTotal.Location = new Point(19, 39);
+            lbRoomTotal.Name = "lbRoomTotal";
+            lbRoomTotal.Size = new Size(40, 46);
+            lbRoomTotal.TabIndex = 0;
+            lbRoomTotal.Text = "8";
             // 
             // lbTotalRoom
             // 
@@ -142,7 +138,7 @@
             // materialCard2
             // 
             materialCard2.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard2.Controls.Add(label4);
+            materialCard2.Controls.Add(lbAvailableRoom);
             materialCard2.Controls.Add(label5);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -154,16 +150,16 @@
             materialCard2.Size = new Size(288, 106);
             materialCard2.TabIndex = 2;
             // 
-            // label4
+            // lbAvailableRoom
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(128, 255, 128);
-            label4.Location = new Point(19, 39);
-            label4.Name = "label4";
-            label4.Size = new Size(40, 46);
-            label4.TabIndex = 0;
-            label4.Text = "2";
+            lbAvailableRoom.AutoSize = true;
+            lbAvailableRoom.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbAvailableRoom.ForeColor = Color.FromArgb(128, 255, 128);
+            lbAvailableRoom.Location = new Point(19, 39);
+            lbAvailableRoom.Name = "lbAvailableRoom";
+            lbAvailableRoom.Size = new Size(40, 46);
+            lbAvailableRoom.TabIndex = 0;
+            lbAvailableRoom.Text = "2";
             // 
             // label5
             // 
@@ -178,7 +174,7 @@
             // materialCard5
             // 
             materialCard5.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard5.Controls.Add(label6);
+            materialCard5.Controls.Add(lbOccupiedRoom);
             materialCard5.Controls.Add(label7);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -190,16 +186,16 @@
             materialCard5.Size = new Size(288, 106);
             materialCard5.TabIndex = 2;
             // 
-            // label6
+            // lbOccupiedRoom
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(255, 128, 0);
-            label6.Location = new Point(19, 39);
-            label6.Name = "label6";
-            label6.Size = new Size(40, 46);
-            label6.TabIndex = 0;
-            label6.Text = "3";
+            lbOccupiedRoom.AutoSize = true;
+            lbOccupiedRoom.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbOccupiedRoom.ForeColor = Color.FromArgb(255, 128, 0);
+            lbOccupiedRoom.Location = new Point(19, 39);
+            lbOccupiedRoom.Name = "lbOccupiedRoom";
+            lbOccupiedRoom.Size = new Size(40, 46);
+            lbOccupiedRoom.TabIndex = 0;
+            lbOccupiedRoom.Text = "3";
             // 
             // label7
             // 
@@ -214,7 +210,7 @@
             // materialCard3
             // 
             materialCard3.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard3.Controls.Add(label8);
+            materialCard3.Controls.Add(lbMaintenaceRoom);
             materialCard3.Controls.Add(label9);
             materialCard3.Depth = 0;
             materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -226,16 +222,16 @@
             materialCard3.Size = new Size(288, 106);
             materialCard3.TabIndex = 2;
             // 
-            // label8
+            // lbMaintenaceRoom
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Fuchsia;
-            label8.Location = new Point(19, 39);
-            label8.Name = "label8";
-            label8.Size = new Size(40, 46);
-            label8.TabIndex = 0;
-            label8.Text = "1";
+            lbMaintenaceRoom.AutoSize = true;
+            lbMaintenaceRoom.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMaintenaceRoom.ForeColor = Color.Fuchsia;
+            lbMaintenaceRoom.Location = new Point(19, 39);
+            lbMaintenaceRoom.Name = "lbMaintenaceRoom";
+            lbMaintenaceRoom.Size = new Size(40, 46);
+            lbMaintenaceRoom.TabIndex = 0;
+            lbMaintenaceRoom.Text = "1";
             // 
             // label9
             // 
@@ -250,18 +246,18 @@
             // materialCard4
             // 
             materialCard4.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard4.Controls.Add(numericUpDown1);
-            materialCard4.Controls.Add(comboBox2);
-            materialCard4.Controls.Add(comboBox1);
-            materialCard4.Controls.Add(kryptonButton1);
-            materialCard4.Controls.Add(materialButton4);
-            materialCard4.Controls.Add(materialButton3);
-            materialCard4.Controls.Add(materialButton1);
+            materialCard4.Controls.Add(btRoomUpdate);
+            materialCard4.Controls.Add(pricePerNight);
+            materialCard4.Controls.Add(roomType);
+            materialCard4.Controls.Add(roomStatus);
+            materialCard4.Controls.Add(Clear);
+            materialCard4.Controls.Add(btRoomDelete);
+            materialCard4.Controls.Add(btRoomAdd);
             materialCard4.Controls.Add(label16);
             materialCard4.Controls.Add(label15);
-            materialCard4.Controls.Add(kryptonMaskedTextBox1);
+            materialCard4.Controls.Add(roomNumber);
             materialCard4.Controls.Add(label14);
-            materialCard4.Controls.Add(txtRoomId);
+            materialCard4.Controls.Add(roomId);
             materialCard4.Controls.Add(label10);
             materialCard4.Controls.Add(label12);
             materialCard4.Controls.Add(label13);
@@ -276,121 +272,122 @@
             materialCard4.Size = new Size(390, 608);
             materialCard4.TabIndex = 2;
             // 
-            // numericUpDown1
+            // btRoomUpdate
             // 
-            numericUpDown1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            numericUpDown1.Location = new Point(34, 349);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(321, 34);
-            numericUpDown1.TabIndex = 4;
-            numericUpDown1.Value = new decimal(new int[] { 20, 0, 0, 0 });
+            btRoomUpdate.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
+            btRoomUpdate.Cursor = Cursors.Hand;
+            btRoomUpdate.Location = new Point(200, 496);
+            btRoomUpdate.Name = "btRoomUpdate";
+            btRoomUpdate.Size = new Size(158, 36);
+            btRoomUpdate.StateCommon.Border.Rounding = 4F;
+            btRoomUpdate.TabIndex = 6;
+            btRoomUpdate.Values.DropDownArrowColor = Color.Empty;
+            btRoomUpdate.Values.Text = "UPDATE";
             // 
-            // comboBox2
+            // pricePerNight
             // 
-            comboBox2.AllowDrop = true;
-            comboBox2.Cursor = Cursors.Hand;
-            comboBox2.DisplayMember = "Anvailable";
-            comboBox2.FlatStyle = FlatStyle.System;
-            comboBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Double ($30/night)", "Single ($20/night)", "Suit ($40/night)", "Twin ($35/night)", "VIP ($50/night)" });
-            comboBox2.Location = new Point(29, 261);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(326, 36);
-            comboBox2.Sorted = true;
-            comboBox2.TabIndex = 4;
-            comboBox2.Text = "Single ($20/night)";
+            pricePerNight.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            pricePerNight.Location = new Point(34, 349);
+            pricePerNight.Name = "pricePerNight";
+            pricePerNight.Size = new Size(321, 34);
+            pricePerNight.TabIndex = 4;
+            pricePerNight.Value = new decimal(new int[] { 20, 0, 0, 0 });
             // 
-            // comboBox1
+            // roomType
             // 
-            comboBox1.AllowDrop = true;
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.DisplayMember = "Anvailable";
-            comboBox1.FlatStyle = FlatStyle.System;
-            comboBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Anvailable", "Maintenece", "Occupied", "Reserved" });
-            comboBox1.Location = new Point(35, 432);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(320, 36);
-            comboBox1.Sorted = true;
-            comboBox1.TabIndex = 4;
-            comboBox1.Text = "Anvailable";
+            roomType.AllowDrop = true;
+            roomType.Cursor = Cursors.Hand;
+            roomType.DisplayMember = "Anvailable";
+            roomType.FlatStyle = FlatStyle.System;
+            roomType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roomType.FormattingEnabled = true;
+            roomType.Items.AddRange(new object[] { "Double ($30/night)", "Single ($20/night)", "Suit ($40/night)", "Twin ($35/night)", "VIP ($50/night)" });
+            roomType.Location = new Point(29, 261);
+            roomType.Name = "roomType";
+            roomType.Size = new Size(326, 36);
+            roomType.Sorted = true;
+            roomType.TabIndex = 4;
+            roomType.Text = "Single ($20/night)";
             // 
-            // kryptonButton1
+            // roomStatus
             // 
-            kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(200, 496);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.Size = new Size(158, 36);
-            kryptonButton1.StateCommon.Border.Rounding = 4F;
-            kryptonButton1.TabIndex = 3;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "UPDATE";
+            roomStatus.AllowDrop = true;
+            roomStatus.Cursor = Cursors.Hand;
+            roomStatus.DisplayMember = "Anvailable";
+            roomStatus.FlatStyle = FlatStyle.System;
+            roomStatus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roomStatus.FormattingEnabled = true;
+            roomStatus.Items.AddRange(new object[] { "Anvailable", "Maintenece", "Occupied", "Reserved" });
+            roomStatus.Location = new Point(35, 432);
+            roomStatus.Name = "roomStatus";
+            roomStatus.Size = new Size(320, 36);
+            roomStatus.Sorted = true;
+            roomStatus.TabIndex = 4;
+            roomStatus.Text = "Anvailable";
             // 
-            // materialButton4
+            // Clear
             // 
-            materialButton4.AutoSize = false;
-            materialButton4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton4.Cursor = Cursors.Hand;
-            materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton4.Depth = 0;
-            materialButton4.HighEmphasis = true;
-            materialButton4.Icon = null;
-            materialButton4.Location = new Point(200, 550);
-            materialButton4.Margin = new Padding(4, 6, 4, 6);
-            materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton4.Name = "materialButton4";
-            materialButton4.NoAccentTextColor = Color.Empty;
-            materialButton4.Size = new Size(158, 36);
-            materialButton4.TabIndex = 5;
-            materialButton4.Text = "Clear";
-            materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton4.UseAccentColor = false;
-            materialButton4.UseVisualStyleBackColor = true;
+            Clear.AutoSize = false;
+            Clear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Clear.Cursor = Cursors.Hand;
+            Clear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            Clear.Depth = 0;
+            Clear.HighEmphasis = true;
+            Clear.Icon = null;
+            Clear.Location = new Point(200, 550);
+            Clear.Margin = new Padding(4, 6, 4, 6);
+            Clear.MouseState = MaterialSkin.MouseState.HOVER;
+            Clear.Name = "Clear";
+            Clear.NoAccentTextColor = Color.Empty;
+            Clear.Size = new Size(158, 36);
+            Clear.TabIndex = 5;
+            Clear.Text = "Clear";
+            Clear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            Clear.UseAccentColor = false;
+            Clear.UseVisualStyleBackColor = true;
             // 
-            // materialButton3
+            // btRoomDelete
             // 
-            materialButton3.AutoSize = false;
-            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton3.Cursor = Cursors.Hand;
-            materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton3.Depth = 0;
-            materialButton3.HighEmphasis = true;
-            materialButton3.Icon = null;
-            materialButton3.Location = new Point(35, 550);
-            materialButton3.Margin = new Padding(4, 6, 4, 6);
-            materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton3.Name = "materialButton3";
-            materialButton3.NoAccentTextColor = Color.Empty;
-            materialButton3.Size = new Size(158, 36);
-            materialButton3.TabIndex = 5;
-            materialButton3.Text = "Delete";
-            materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton3.UseAccentColor = true;
-            materialButton3.UseVisualStyleBackColor = true;
+            btRoomDelete.AutoSize = false;
+            btRoomDelete.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btRoomDelete.Cursor = Cursors.Hand;
+            btRoomDelete.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btRoomDelete.Depth = 0;
+            btRoomDelete.HighEmphasis = true;
+            btRoomDelete.Icon = null;
+            btRoomDelete.Location = new Point(35, 550);
+            btRoomDelete.Margin = new Padding(4, 6, 4, 6);
+            btRoomDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            btRoomDelete.Name = "btRoomDelete";
+            btRoomDelete.NoAccentTextColor = Color.Empty;
+            btRoomDelete.Size = new Size(158, 36);
+            btRoomDelete.TabIndex = 5;
+            btRoomDelete.Text = "Delete";
+            btRoomDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btRoomDelete.UseAccentColor = true;
+            btRoomDelete.UseVisualStyleBackColor = true;
             // 
-            // materialButton1
+            // btRoomAdd
             // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Cursor = Cursors.Hand;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(35, 496);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(158, 36);
-            materialButton1.TabIndex = 5;
-            materialButton1.Text = "Add Room";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btRoomAdd.AutoSize = false;
+            btRoomAdd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btRoomAdd.Cursor = Cursors.Hand;
+            btRoomAdd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btRoomAdd.Depth = 0;
+            btRoomAdd.HighEmphasis = true;
+            btRoomAdd.Icon = null;
+            btRoomAdd.Location = new Point(35, 496);
+            btRoomAdd.Margin = new Padding(4, 6, 4, 6);
+            btRoomAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            btRoomAdd.Name = "btRoomAdd";
+            btRoomAdd.NoAccentTextColor = Color.Empty;
+            btRoomAdd.Size = new Size(158, 36);
+            btRoomAdd.TabIndex = 5;
+            btRoomAdd.Text = "Add Room";
+            btRoomAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btRoomAdd.UseAccentColor = false;
+            btRoomAdd.UseVisualStyleBackColor = true;
+            btRoomAdd.Click += btRoomAdd_Click;
             // 
             // label16
             // 
@@ -412,20 +409,20 @@
             label15.TabIndex = 0;
             label15.Text = "Price Per Night($)";
             // 
-            // kryptonMaskedTextBox1
+            // roomNumber
             // 
-            kryptonMaskedTextBox1.Cursor = Cursors.IBeam;
-            kryptonMaskedTextBox1.Location = new Point(29, 178);
-            kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
-            kryptonMaskedTextBox1.Size = new Size(326, 38);
-            kryptonMaskedTextBox1.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonMaskedTextBox1.StateActive.Border.Rounding = 8F;
-            kryptonMaskedTextBox1.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox1.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonMaskedTextBox1.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox1.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox1.TabIndex = 4;
-            kryptonMaskedTextBox1.Text = "e.g. 103";
+            roomNumber.Cursor = Cursors.IBeam;
+            roomNumber.Location = new Point(29, 178);
+            roomNumber.Name = "roomNumber";
+            roomNumber.Size = new Size(326, 38);
+            roomNumber.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            roomNumber.StateActive.Border.Rounding = 8F;
+            roomNumber.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            roomNumber.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roomNumber.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            roomNumber.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            roomNumber.TabIndex = 4;
+            roomNumber.Text = "1";
             // 
             // label14
             // 
@@ -437,20 +434,20 @@
             label14.TabIndex = 0;
             label14.Text = "Room Type";
             // 
-            // txtRoomId
+            // roomId
             // 
-            txtRoomId.Cursor = Cursors.IBeam;
-            txtRoomId.Location = new Point(27, 95);
-            txtRoomId.Name = "txtRoomId";
-            txtRoomId.Size = new Size(328, 38);
-            txtRoomId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            txtRoomId.StateActive.Border.Rounding = 8F;
-            txtRoomId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRoomId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.TabIndex = 4;
-            txtRoomId.Text = "R001";
+            roomId.Cursor = Cursors.IBeam;
+            roomId.Location = new Point(27, 95);
+            roomId.Name = "roomId";
+            roomId.Size = new Size(328, 38);
+            roomId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            roomId.StateActive.Border.Rounding = 8F;
+            roomId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            roomId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roomId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            roomId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            roomId.TabIndex = 4;
+            roomId.Text = "1";
             // 
             // label10
             // 
@@ -503,10 +500,10 @@
             // materialCard6
             // 
             materialCard6.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard6.Controls.Add(kryptonRichTextBox1);
-            materialCard6.Controls.Add(comboBox3);
-            materialCard6.Controls.Add(comboBox5);
-            materialCard6.Controls.Add(materialButton2);
+            materialCard6.Controls.Add(txtSearch);
+            materialCard6.Controls.Add(filterType);
+            materialCard6.Controls.Add(filterStatus);
+            materialCard6.Controls.Add(btRoomRest);
             materialCard6.Depth = 0;
             materialCard6.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard6.Location = new Point(456, 256);
@@ -517,107 +514,81 @@
             materialCard6.Size = new Size(837, 78);
             materialCard6.TabIndex = 2;
             // 
-            // kryptonRichTextBox1
+            // txtSearch
             // 
-            kryptonRichTextBox1.AlwaysActive = false;
-            kryptonRichTextBox1.Cursor = Cursors.IBeam;
-            kryptonRichTextBox1.Location = new Point(23, 22);
-            kryptonRichTextBox1.Name = "kryptonRichTextBox1";
-            kryptonRichTextBox1.Size = new Size(364, 36);
-            kryptonRichTextBox1.StateActive.Border.Color1 = Color.Red;
-            kryptonRichTextBox1.StateActive.Border.Rounding = 8F;
-            kryptonRichTextBox1.StateNormal.Border.Color1 = Color.FromArgb(128, 255, 128);
-            kryptonRichTextBox1.StateNormal.Border.Rounding = 8F;
-            kryptonRichTextBox1.TabIndex = 1;
-            kryptonRichTextBox1.Text = "Search by Room ID or Number...";
+            txtSearch.AlwaysActive = false;
+            txtSearch.Cursor = Cursors.IBeam;
+            txtSearch.Location = new Point(23, 22);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(364, 36);
+            txtSearch.StateActive.Border.Color1 = Color.Red;
+            txtSearch.StateActive.Border.Rounding = 8F;
+            txtSearch.StateNormal.Border.Color1 = Color.FromArgb(128, 255, 128);
+            txtSearch.StateNormal.Border.Rounding = 8F;
+            txtSearch.TabIndex = 1;
+            txtSearch.Text = "Search by Room ID or Number...";
             // 
-            // comboBox3
+            // filterType
             // 
-            comboBox3.AllowDrop = true;
-            comboBox3.Cursor = Cursors.Hand;
-            comboBox3.DisplayMember = "Anvailable";
-            comboBox3.FlatStyle = FlatStyle.System;
-            comboBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "All Types", "Double", "Single", "Suit", "Twin", "VIP" });
-            comboBox3.Location = new Point(409, 22);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(127, 36);
-            comboBox3.Sorted = true;
-            comboBox3.TabIndex = 4;
-            comboBox3.Text = "All Types";
+            filterType.AllowDrop = true;
+            filterType.Cursor = Cursors.Hand;
+            filterType.DisplayMember = "Anvailable";
+            filterType.FlatStyle = FlatStyle.System;
+            filterType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            filterType.FormattingEnabled = true;
+            filterType.Items.AddRange(new object[] { "All Types", "Double", "Single", "Suit", "Twin", "VIP" });
+            filterType.Location = new Point(409, 22);
+            filterType.Name = "filterType";
+            filterType.Size = new Size(127, 36);
+            filterType.Sorted = true;
+            filterType.TabIndex = 4;
+            filterType.Text = "All Types";
             // 
-            // comboBox5
+            // filterStatus
             // 
-            comboBox5.AllowDrop = true;
-            comboBox5.Cursor = Cursors.Hand;
-            comboBox5.DisplayMember = "Anvailable";
-            comboBox5.FlatStyle = FlatStyle.System;
-            comboBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "All Statuses", "Anvailable", "Maintenece", "Occupied", "Reserved" });
-            comboBox5.Location = new Point(549, 22);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(154, 36);
-            comboBox5.Sorted = true;
-            comboBox5.TabIndex = 4;
-            comboBox5.Text = "All Statuses";
+            filterStatus.AllowDrop = true;
+            filterStatus.Cursor = Cursors.Hand;
+            filterStatus.DisplayMember = "Anvailable";
+            filterStatus.FlatStyle = FlatStyle.System;
+            filterStatus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            filterStatus.FormattingEnabled = true;
+            filterStatus.Items.AddRange(new object[] { "All Statuses", "Anvailable", "Maintenece", "Occupied", "Reserved" });
+            filterStatus.Location = new Point(549, 22);
+            filterStatus.Name = "filterStatus";
+            filterStatus.Size = new Size(154, 36);
+            filterStatus.Sorted = true;
+            filterStatus.TabIndex = 4;
+            filterStatus.Text = "All Statuses";
             // 
-            // materialButton2
+            // btRoomRest
             // 
-            materialButton2.AutoSize = false;
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Cursor = Cursors.Hand;
-            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.Location = new Point(714, 22);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(103, 36);
-            materialButton2.TabIndex = 5;
-            materialButton2.Text = "Rest";
-            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
-            // 
-            // kryptonListBox1
-            // 
-            kryptonListBox1.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridHeaderRowList;
-            kryptonListBox1.BorderStyle = Krypton.Toolkit.PaletteBorderStyle.GridHeaderColumnCustom2;
-            kryptonListBox1.Cursor = Cursors.Hand;
-            kryptonListBox1.Items.AddRange(new object[] { "R001\t\t\t\t\t\t01\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R002\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R003\t\t\t\t\t\t05\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R004\t\t\t\t\t\t03\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R005\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R006\t\t\t\t\t\t07\t\t\t\t\t\t\t\t\t\t\tSingle\t\t\t\t\t\t\t$30\t\t\t\tAnvailable", "R001\t\t\t\t\t\t01\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R002\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R003\t\t\t\t\t\t05\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R004\t\t\t\t\t\t03\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R005\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R006\t\t\t\t\t\t07\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R001\t\t\t\t\t\t01\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R002\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R003\t\t\t\t\t\t05\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R004\t\t\t\t\t\t03\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R005\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R006\t\t\t\t\t\t07\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R001\t\t\t\t\t\t01\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R002\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R003\t\t\t\t\t\t05\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R004\t\t\t\t\t\t03\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R005\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R006\t\t\t\t\t\t07\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R001\t\t\t\t\t\t01\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R002\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R003\t\t\t\t\t\t05\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R004\t\t\t\t\t\t03\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R005\t\t\t\t\t\t02\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied", "R006\t\t\t\t\t\t07\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied\t\t\t\t\t\t\t\t\t\t\tVIP\t\t\t\t\t\t\t$50\t\t\t\t\tOccupied" });
-            kryptonListBox1.Location = new Point(456, 406);
-            kryptonListBox1.Name = "kryptonListBox1";
-            kryptonListBox1.Size = new Size(837, 458);
-            kryptonListBox1.StateCheckedNormal.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonListBox1.StateCheckedPressed.Item.Back.Color1 = Color.FromArgb(255, 128, 255);
-            kryptonListBox1.StateCheckedPressed.Item.Border.Color1 = Color.FromArgb(192, 255, 255);
-            kryptonListBox1.StateCheckedPressed.Item.Border.Rounding = 4F;
-            kryptonListBox1.StateCheckedPressed.Item.Content.ShortText.Color1 = Color.FromArgb(128, 255, 128);
-            kryptonListBox1.StateCheckedPressed.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonListBox1.StateCommon.Border.Color1 = Color.FromArgb(128, 255, 255);
-            kryptonListBox1.StateCommon.Border.Rounding = 8F;
-            kryptonListBox1.StateCommon.Item.Content.AdjacentGap = 5;
-            kryptonListBox1.StateCommon.Item.Content.Padding = new Padding(-1, 5, -1, 5);
-            kryptonListBox1.StateCommon.Item.Content.ShortText.Color1 = Color.DarkViolet;
-            kryptonListBox1.StateCommon.Item.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.SolidInside;
-            kryptonListBox1.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonListBox1.TabIndex = 4;
+            btRoomRest.AutoSize = false;
+            btRoomRest.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btRoomRest.Cursor = Cursors.Hand;
+            btRoomRest.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btRoomRest.Depth = 0;
+            btRoomRest.HighEmphasis = true;
+            btRoomRest.Icon = null;
+            btRoomRest.Location = new Point(714, 22);
+            btRoomRest.Margin = new Padding(4, 6, 4, 6);
+            btRoomRest.MouseState = MaterialSkin.MouseState.HOVER;
+            btRoomRest.Name = "btRoomRest";
+            btRoomRest.NoAccentTextColor = Color.Empty;
+            btRoomRest.Size = new Size(103, 36);
+            btRoomRest.TabIndex = 5;
+            btRoomRest.Text = "Rest";
+            btRoomRest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btRoomRest.UseAccentColor = false;
+            btRoomRest.UseVisualStyleBackColor = true;
             // 
             // materialCard7
             // 
+            materialCard7.AutoScroll = true;
             materialCard7.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard7.Controls.Add(label21);
-            materialCard7.Controls.Add(label20);
-            materialCard7.Controls.Add(label19);
-            materialCard7.Controls.Add(label18);
-            materialCard7.Controls.Add(label17);
+            materialCard7.Controls.Add(dgvRooms);
+            materialCard7.Cursor = Cursors.Hand;
             materialCard7.Depth = 0;
-            materialCard7.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCard7.ForeColor = Color.Lime;
             materialCard7.Location = new Point(456, 351);
             materialCard7.Margin = new Padding(16);
             materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
@@ -626,60 +597,22 @@
             materialCard7.Size = new Size(837, 513);
             materialCard7.TabIndex = 2;
             // 
-            // label21
+            // dgvRooms
             // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(702, 16);
-            label21.Name = "label21";
-            label21.Size = new Size(81, 28);
-            label21.TabIndex = 5;
-            label21.Text = "STATUS";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(568, 16);
-            label20.Name = "label20";
-            label20.Size = new Size(64, 28);
-            label20.TabIndex = 5;
-            label20.Text = "PRICE";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(378, 16);
-            label19.Name = "label19";
-            label19.Size = new Size(123, 28);
-            label19.TabIndex = 5;
-            label19.Text = "ROOM TYPE";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(153, 16);
-            label18.Name = "label18";
-            label18.Size = new Size(159, 28);
-            label18.TabIndex = 5;
-            label18.Text = "ROOM NUMBER";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(19, 16);
-            label17.Name = "label17";
-            label17.Size = new Size(98, 28);
-            label17.TabIndex = 5;
-            label17.Text = "ROOM ID";
+            dgvRooms.AllowUserToAddRows = false;
+            dgvRooms.AllowUserToOrderColumns = true;
+            dgvRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRooms.Dock = DockStyle.Fill;
+            dgvRooms.Location = new Point(16, 16);
+            dgvRooms.Name = "dgvRooms";
+            dgvRooms.ReadOnly = true;
+            dgvRooms.RowHeadersWidth = 51;
+            dgvRooms.Size = new Size(805, 481);
+            dgvRooms.TabIndex = 6;
             // 
             // RoomControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(kryptonListBox1);
             Controls.Add(internalSearchableExceptionTreeView1);
             Controls.Add(materialCard7);
             Controls.Add(materialCard6);
@@ -704,10 +637,10 @@
             materialCard3.PerformLayout();
             materialCard4.ResumeLayout(false);
             materialCard4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pricePerNight).EndInit();
             materialCard6.ResumeLayout(false);
             materialCard7.ResumeLayout(false);
-            materialCard7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRooms).EndInit();
             ResumeLayout(false);
             PerformLayout();
             //ResumeLayout(false);
@@ -720,46 +653,41 @@
         private Label label2;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Label lbTotalRoom;
-        private Label label3;
+        private Label lbRoomTotal;
         private MaterialSkin.Controls.MaterialCard materialCard2;
-        private Label label4;
+        private Label lbAvailableRoom;
         private Label label5;
         private MaterialSkin.Controls.MaterialCard materialCard5;
-        private Label label6;
+        private Label lbOccupiedRoom;
         private Label label7;
         private MaterialSkin.Controls.MaterialCard materialCard3;
-        private Label label8;
+        private Label lbMaintenaceRoom;
         private Label label9;
         private MaterialSkin.Controls.MaterialCard materialCard4;
         private Label label11;
         private Label label12;
         private Label label13;
-        private Krypton.Toolkit.KryptonMaskedTextBox txtRoomId;
+        private Krypton.Toolkit.KryptonMaskedTextBox roomId;
         private Label label15;
-        private Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox1;
+        private Krypton.Toolkit.KryptonMaskedTextBox roomNumber;
         private Label label14;
         private Label label10;
         private Label label16;
-        private MaterialSkin.Controls.MaterialButton materialButton4;
-        private MaterialSkin.Controls.MaterialButton btRoomUpdate;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private ComboBox comboBox1;
-        private NumericUpDown numericUpDown1;
-        private ComboBox comboBox2;
+        private MaterialSkin.Controls.MaterialButton Clear;
+        private MaterialSkin.Controls.MaterialButton btRoomDelete;
+        private MaterialSkin.Controls.MaterialButton btRoomAdd;
+        //private Krypton.Toolkit.KryptonButton btRoomUpdate;
+        private ComboBox roomStatus;
+        private NumericUpDown pricePerNight;
+        private ComboBox roomType;
         private Krypton.Toolkit.InternalSearchableExceptionTreeView internalSearchableExceptionTreeView1;
         private MaterialSkin.Controls.MaterialCard materialCard6;
-        private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
-        private ComboBox comboBox3;
-        private ComboBox comboBox5;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private Krypton.Toolkit.KryptonListBox kryptonListBox1;
+        private Krypton.Toolkit.KryptonRichTextBox txtSearch;
+        private ComboBox filterType;
+        private ComboBox filterStatus;
+        private MaterialSkin.Controls.MaterialButton btRoomRest;
         private MaterialSkin.Controls.MaterialCard materialCard7;
-        private Label label21;
-        private Label label20;
-        private Label label19;
-        private Label label18;
-        private Label label17;
+        private Krypton.Toolkit.KryptonButton btRoomUpdate;
+        private DataGridView dgvRooms;
     }
 }

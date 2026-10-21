@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hotel_Management.Models
 {
-    public class Customer
+    public class CustomerModel
     {
         public int CustomerID { get; set; }
         public string CustomerName { get; set; }

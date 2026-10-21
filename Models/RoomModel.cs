@@ -11,16 +11,22 @@ namespace Hotel_Management.Models
         Reserved,
         Maintenance 
     }
-    public class Room
+    public enum RoomType
+    {
+        Single,
+        Double,
+        Suite,
+        Vip
+    }
+    public class RoomModel
     {
         public int RoomId { get; set; }
         public int RoomNumber { get; set; }
+        public RoomType RoomType { get; set; } = RoomType.Single;
 
         public Decimal Price { get; set; } = new Decimal(0);
-        public int Capacity { get; set; } = 1;
         public RoomStatus Status { get; set; } = RoomStatus.Available;
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-
+        
     }
 }

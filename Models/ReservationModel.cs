@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hotel_Management.Models
 {
-    internal class Reservation
+    public class ReservationModel
     {
         public int ReservationId { get; set; }
         public int CustomerId { get; set; }

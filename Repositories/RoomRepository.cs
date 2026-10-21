@@ -1,6 +1,8 @@
 ﻿using Hotel_Management.Data;
+using Hotel_Management.Models;
 using System;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace Hotel_Management.Repositories
 {
@@ -96,6 +98,44 @@ namespace Hotel_Management.Repositories
             {
                 Console.WriteLine("[DELETE ERROR] " + ex.Message);
             }
+        }
+
+        public List<RoomModel> GetAllRoom()
+        {
+            string query = @"
+                SELECT room_id, room_number, room_type,
+                price, room_status
+                FROM dbo.ROOMS
+                ORDER BY room_number;";
+
+
+            var rooms = new List<RoomModel>();
+
+            using var connection = DatabaseConnection.GetConnection();
+            using var cmd = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rooms.Add(new RoomModel
+                    {
+                        RoomId = Convert.ToInt32(reader["room_id"]),
+                        RoomNumber = Convert.ToInt32(reader["room_number"]),
+                        RoomType = Enum.TryParse(reader["room_type"].ToString(), out RoomType roomType) ? roomType : RoomType.Single,
+                        Price = Convert.ToDecimal(reader["price"]),
+                        Status = Enum.TryParse(reader["room_status"].ToString(), out RoomStatus roomStatus) ? roomStatus : RoomStatus.Available
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[GET ALL ROOM ERROR] " + ex.Message);
+            }
+
+            return rooms;
         }
     }
 }
