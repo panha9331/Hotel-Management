@@ -1,6 +1,8 @@
 ﻿using Hotel_Management.Models;
+using Hotel_Management.Repositories;
 using Hotel_Management.Services;
-using Hotel_Management.Repositories;    
+//using Microsoft.UI.Xaml.Controls;
+using System.Windows.Forms.VisualStyles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Hotel_Management.RoomManagement
 {
@@ -9,39 +11,62 @@ namespace Hotel_Management.RoomManagement
 
         private readonly RoomService _roomService;
         private readonly RoomRepository _roomRepository;
+        private readonly RoomModel roomModel = new RoomModel();
         public RoomControl(RoomService roomService, RoomRepository roomRepository)
         {
             InitializeComponent();
             _roomService = roomService;
             _roomRepository = roomRepository;
+            roomType.SelectedIndexChanged += roomType_SelectedIndexChanged;
         }
 
         private void RoomControl_Load(object sender, EventArgs e)
         {
             _roomService.LoadRoom();
 
-            dgvRooms.DataSource = _roomService.GetRooms().ToList();
+            pricePerNight.Minimum = 0;
+            pricePerNight.Maximum = 1000000;
+            pricePerNight.DecimalPlaces = 2;
+
+            LoadComboBoxes();
+
+            UpdateRoomSummary();
+
+            GetNextRoomId();
 
 
-            // 2. Set custom column widths (in pixels)
-            dgvRooms.Columns["RoomId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvRooms.Columns["RoomNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dgvRooms.Columns["RoomType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Stretches to fill space
-            dgvRooms.Columns["Price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvRooms.Columns["Status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            LoadDgvRooms();
+
         }
 
         private void btRoomAdd_Click(object sender, EventArgs e)
         {
+
             try
             {
+
+
+                // Assign to model
+                RoomType roomTypeSelected = (RoomType)roomType.SelectedItem!;
+                RoomStatus roomStatusSelected = (RoomStatus)roomStatus.SelectedItem!;
+
+                // 3. Pass clean data to service layer
                 _roomService.AddRoom(
-                    int.Parse(roomId.Text),
+                    //int.Parse(roomId.Text),
                     int.Parse(roomNumber.Text),
-                    roomType.Text,
+                    roomTypeSelected.ToString(),
                     decimal.Parse(pricePerNight.Text),
-                    roomStatus.Text
+                    roomStatusSelected.ToString() // Converts enum cleanly to string for DB insertion
                 );
+
+                _roomService.LoadRoom();
+
+                UpdateRoomSummary();
+
+
+                LoadDgvRooms();
+
+
 
                 MessageBox.Show("Room added successfully.");
 
@@ -75,63 +100,62 @@ namespace Hotel_Management.RoomManagement
             //Console.WriteLine("==> " + roomModel.Status);
         }
 
-        //out lets a method return two or more values.
-        private bool ValidateRoomInput(out string errorMessage) // Returns true if all inputs are valid, false otherwise
-                                                                // the out keyword requires value to be assigned before the method returns.
-        {//the out_ keyword do not need to return a value, Tell C# you don't care about the value.   
-            var errors = new List<string>();
 
-            // 1. Validate Room ID
-            if (string.IsNullOrWhiteSpace(roomId.Text))
-            {
-                errors.Add("Room ID cannot be empty.");
-            }
-            else if (!int.TryParse(roomId.Text, out _))
-            {
-                errors.Add("Room ID must be a valid integer (Number).");
-            }
+        private void GetPriceByRoomType()
+        {
+            if (roomType.SelectedItem is not RoomType selectedRoomType)
+                return;
 
-            // 2. Validate Room Number
-            if (string.IsNullOrWhiteSpace(roomNumber.Text))
-            {
-                errors.Add("Room Number cannot be empty.");
-            }
-            else if (!int.TryParse(roomNumber.Text, out _))
-            {
-                errors.Add("Room Number must be a valid integer (Number).");
-            }
-
-            // 3. Validate Room Type selection
-            if (roomType.SelectedIndex == -1 || string.IsNullOrWhiteSpace(roomType.Text))
-            {
-                errors.Add("Please select a valid Room Type.");
-            }
-
-            // 4. Validate Price Per Night (Safe Parsing)
-            if (string.IsNullOrWhiteSpace(pricePerNight.Text))
-            {
-                errors.Add("Price Per Night cannot be empty.");
-            }
-            else if (!decimal.TryParse(pricePerNight.Text, out decimal price) || price <= 0)
-            {
-                errors.Add("Price Per Night must be a valid positive number.");
-            }
-
-            // 5. Validate Status selection
-            if (roomStatus.SelectedIndex == -1 || string.IsNullOrWhiteSpace(roomStatus.Text))
-            {
-                errors.Add("Please select a Status.");
-            }
-
-            // If any errors exist, join them into a list for the alert box
-            if (errors.Count > 0)
-            {
-                errorMessage = "Please fix the following issues before submitting:\n\n• " + string.Join("\n• ", errors);
-                return false;
-            }
-
-            errorMessage = string.Empty;
-            return true;
+            decimal price = _roomService.GetPriceByRoomType(selectedRoomType);
+            pricePerNight.Value = price;
         }
+
+        private void GetNextRoomId()
+        {
+            int nextRoomId = _roomService.GetNextRoomId();
+            roomId.Text = nextRoomId.ToString();
+        }
+
+        private void UpdateRoomSummary()
+        {
+            var summary = _roomService.GetRoomSummary();
+            lbTotalRooms.Text = summary.totalRooms.ToString();
+            lbAvailableRooms.Text = summary.availableRooms.ToString();
+            lbOccupiedRooms.Text = summary.occupiedRooms.ToString();
+            lbReservedRooms.Text = summary.reservedRooms.ToString();
+        }
+
+        private void LoadDgvRooms()
+        {
+            dgvRooms.DataSource = _roomService.GetRooms().ToList();
+
+
+
+
+            // 2. Set custom column widths (in pixels)
+            dgvRooms.Columns["RoomId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvRooms.Columns["RoomNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dgvRooms.Columns["RoomType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Stretches to fill space
+            dgvRooms.Columns["Price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvRooms.Columns["Status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void LoadComboBoxes()
+        {
+            roomType.DataSource = Enum.GetValues(typeof(RoomType));
+            roomStatus.DataSource = Enum.GetValues(typeof(RoomStatus));
+            filterStatus.DataSource = Enum.GetValues(typeof(RoomStatus));
+            filterType.DataSource = Enum.GetValues(typeof(RoomType));
+
+        }
+
+        private void roomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (roomType.SelectedItem is RoomType selectedType)
+            {
+                GetPriceByRoomType();
+            }
+        }
+
     }
 }

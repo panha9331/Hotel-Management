@@ -31,16 +31,16 @@
             label1 = new Label();
             label2 = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            lbRoomTotal = new Label();
+            lbTotalRooms = new Label();
             lbTotalRoom = new Label();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            lbAvailableRoom = new Label();
+            lbAvailableRooms = new Label();
             label5 = new Label();
             materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            lbOccupiedRoom = new Label();
+            lbOccupiedRooms = new Label();
             label7 = new Label();
             materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            lbMaintenaceRoom = new Label();
+            lbReservedRooms = new Label();
             label9 = new Label();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
             btRoomUpdate = new Krypton.Toolkit.KryptonButton();
@@ -59,7 +59,6 @@
             label12 = new Label();
             label13 = new Label();
             label11 = new Label();
-            internalSearchableExceptionTreeView1 = new Krypton.Toolkit.InternalSearchableExceptionTreeView();
             materialCard6 = new MaterialSkin.Controls.MaterialCard();
             txtSearch = new Krypton.Toolkit.KryptonRichTextBox();
             filterType = new ComboBox();
@@ -103,7 +102,7 @@
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(lbRoomTotal);
+            materialCard1.Controls.Add(lbTotalRooms);
             materialCard1.Controls.Add(lbTotalRoom);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -115,15 +114,15 @@
             materialCard1.Size = new Size(288, 106);
             materialCard1.TabIndex = 2;
             // 
-            // lbRoomTotal
+            // lbTotalRooms
             // 
-            lbRoomTotal.AutoSize = true;
-            lbRoomTotal.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbRoomTotal.Location = new Point(19, 39);
-            lbRoomTotal.Name = "lbRoomTotal";
-            lbRoomTotal.Size = new Size(40, 46);
-            lbRoomTotal.TabIndex = 0;
-            lbRoomTotal.Text = "8";
+            lbTotalRooms.AutoSize = true;
+            lbTotalRooms.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTotalRooms.Location = new Point(19, 39);
+            lbTotalRooms.Name = "lbTotalRooms";
+            lbTotalRooms.Size = new Size(40, 46);
+            lbTotalRooms.TabIndex = 0;
+            lbTotalRooms.Text = "8";
             // 
             // lbTotalRoom
             // 
@@ -138,7 +137,7 @@
             // materialCard2
             // 
             materialCard2.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard2.Controls.Add(lbAvailableRoom);
+            materialCard2.Controls.Add(lbAvailableRooms);
             materialCard2.Controls.Add(label5);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -150,16 +149,16 @@
             materialCard2.Size = new Size(288, 106);
             materialCard2.TabIndex = 2;
             // 
-            // lbAvailableRoom
+            // lbAvailableRooms
             // 
-            lbAvailableRoom.AutoSize = true;
-            lbAvailableRoom.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbAvailableRoom.ForeColor = Color.FromArgb(128, 255, 128);
-            lbAvailableRoom.Location = new Point(19, 39);
-            lbAvailableRoom.Name = "lbAvailableRoom";
-            lbAvailableRoom.Size = new Size(40, 46);
-            lbAvailableRoom.TabIndex = 0;
-            lbAvailableRoom.Text = "2";
+            lbAvailableRooms.AutoSize = true;
+            lbAvailableRooms.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbAvailableRooms.ForeColor = Color.FromArgb(128, 255, 128);
+            lbAvailableRooms.Location = new Point(19, 39);
+            lbAvailableRooms.Name = "lbAvailableRooms";
+            lbAvailableRooms.Size = new Size(40, 46);
+            lbAvailableRooms.TabIndex = 0;
+            lbAvailableRooms.Text = "2";
             // 
             // label5
             // 
@@ -174,7 +173,7 @@
             // materialCard5
             // 
             materialCard5.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard5.Controls.Add(lbOccupiedRoom);
+            materialCard5.Controls.Add(lbOccupiedRooms);
             materialCard5.Controls.Add(label7);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -186,16 +185,16 @@
             materialCard5.Size = new Size(288, 106);
             materialCard5.TabIndex = 2;
             // 
-            // lbOccupiedRoom
+            // lbOccupiedRooms
             // 
-            lbOccupiedRoom.AutoSize = true;
-            lbOccupiedRoom.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbOccupiedRoom.ForeColor = Color.FromArgb(255, 128, 0);
-            lbOccupiedRoom.Location = new Point(19, 39);
-            lbOccupiedRoom.Name = "lbOccupiedRoom";
-            lbOccupiedRoom.Size = new Size(40, 46);
-            lbOccupiedRoom.TabIndex = 0;
-            lbOccupiedRoom.Text = "3";
+            lbOccupiedRooms.AutoSize = true;
+            lbOccupiedRooms.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbOccupiedRooms.ForeColor = Color.FromArgb(255, 128, 0);
+            lbOccupiedRooms.Location = new Point(19, 39);
+            lbOccupiedRooms.Name = "lbOccupiedRooms";
+            lbOccupiedRooms.Size = new Size(40, 46);
+            lbOccupiedRooms.TabIndex = 0;
+            lbOccupiedRooms.Text = "3";
             // 
             // label7
             // 
@@ -210,7 +209,7 @@
             // materialCard3
             // 
             materialCard3.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard3.Controls.Add(lbMaintenaceRoom);
+            materialCard3.Controls.Add(lbReservedRooms);
             materialCard3.Controls.Add(label9);
             materialCard3.Depth = 0;
             materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -222,16 +221,16 @@
             materialCard3.Size = new Size(288, 106);
             materialCard3.TabIndex = 2;
             // 
-            // lbMaintenaceRoom
+            // lbReservedRooms
             // 
-            lbMaintenaceRoom.AutoSize = true;
-            lbMaintenaceRoom.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbMaintenaceRoom.ForeColor = Color.Fuchsia;
-            lbMaintenaceRoom.Location = new Point(19, 39);
-            lbMaintenaceRoom.Name = "lbMaintenaceRoom";
-            lbMaintenaceRoom.Size = new Size(40, 46);
-            lbMaintenaceRoom.TabIndex = 0;
-            lbMaintenaceRoom.Text = "1";
+            lbReservedRooms.AutoSize = true;
+            lbReservedRooms.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbReservedRooms.ForeColor = Color.Fuchsia;
+            lbReservedRooms.Location = new Point(19, 39);
+            lbReservedRooms.Name = "lbReservedRooms";
+            lbReservedRooms.Size = new Size(40, 46);
+            lbReservedRooms.TabIndex = 0;
+            lbReservedRooms.Text = "1";
             // 
             // label9
             // 
@@ -239,9 +238,9 @@
             label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.Location = new Point(19, 16);
             label9.Name = "label9";
-            label9.Size = new Size(166, 23);
+            label9.Size = new Size(155, 23);
             label9.TabIndex = 0;
-            label9.Text = "Maintenance Rooms";
+            label9.Text = "Reservation Rooms";
             // 
             // materialCard4
             // 
@@ -291,7 +290,6 @@
             pricePerNight.Name = "pricePerNight";
             pricePerNight.Size = new Size(321, 34);
             pricePerNight.TabIndex = 4;
-            pricePerNight.Value = new decimal(new int[] { 20, 0, 0, 0 });
             // 
             // roomType
             // 
@@ -301,13 +299,12 @@
             roomType.FlatStyle = FlatStyle.System;
             roomType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             roomType.FormattingEnabled = true;
-            roomType.Items.AddRange(new object[] { "Double ($30/night)", "Single ($20/night)", "Suit ($40/night)", "Twin ($35/night)", "VIP ($50/night)" });
             roomType.Location = new Point(29, 261);
             roomType.Name = "roomType";
             roomType.Size = new Size(326, 36);
             roomType.Sorted = true;
             roomType.TabIndex = 4;
-            roomType.Text = "Single ($20/night)";
+            roomType.SelectedIndexChanged += roomType_SelectedIndexChanged;
             // 
             // roomStatus
             // 
@@ -439,6 +436,7 @@
             roomId.Cursor = Cursors.IBeam;
             roomId.Location = new Point(27, 95);
             roomId.Name = "roomId";
+            roomId.ReadOnly = true;
             roomId.Size = new Size(328, 38);
             roomId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
             roomId.StateActive.Border.Rounding = 8F;
@@ -487,15 +485,6 @@
             label11.Size = new Size(160, 28);
             label11.TabIndex = 0;
             label11.Text = "Add New Room";
-            // 
-            // internalSearchableExceptionTreeView1
-            // 
-            internalSearchableExceptionTreeView1.BackColor = Color.Transparent;
-            internalSearchableExceptionTreeView1.Location = new Point(1030, 489);
-            internalSearchableExceptionTreeView1.Margin = new Padding(4, 5, 4, 5);
-            internalSearchableExceptionTreeView1.Name = "internalSearchableExceptionTreeView1";
-            internalSearchableExceptionTreeView1.Size = new Size(8, 8);
-            internalSearchableExceptionTreeView1.TabIndex = 3;
             // 
             // materialCard6
             // 
@@ -588,7 +577,7 @@
             materialCard7.Controls.Add(dgvRooms);
             materialCard7.Cursor = Cursors.Hand;
             materialCard7.Depth = 0;
-            materialCard7.ForeColor = Color.Lime;
+            materialCard7.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard7.Location = new Point(456, 351);
             materialCard7.Margin = new Padding(16);
             materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
@@ -613,7 +602,6 @@
             // RoomControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(internalSearchableExceptionTreeView1);
             Controls.Add(materialCard7);
             Controls.Add(materialCard6);
             Controls.Add(materialCard3);
@@ -653,15 +641,15 @@
         private Label label2;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Label lbTotalRoom;
-        private Label lbRoomTotal;
+        private Label lbTotalRooms;
         private MaterialSkin.Controls.MaterialCard materialCard2;
-        private Label lbAvailableRoom;
+        private Label lbAvailableRooms;
         private Label label5;
         private MaterialSkin.Controls.MaterialCard materialCard5;
-        private Label lbOccupiedRoom;
+        private Label lbOccupiedRooms;
         private Label label7;
         private MaterialSkin.Controls.MaterialCard materialCard3;
-        private Label lbMaintenaceRoom;
+        private Label lbReservedRooms;
         private Label label9;
         private MaterialSkin.Controls.MaterialCard materialCard4;
         private Label label11;
@@ -680,7 +668,6 @@
         private ComboBox roomStatus;
         private NumericUpDown pricePerNight;
         private ComboBox roomType;
-        private Krypton.Toolkit.InternalSearchableExceptionTreeView internalSearchableExceptionTreeView1;
         private MaterialSkin.Controls.MaterialCard materialCard6;
         private Krypton.Toolkit.KryptonRichTextBox txtSearch;
         private ComboBox filterType;

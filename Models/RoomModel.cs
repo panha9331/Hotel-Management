@@ -16,7 +16,9 @@ namespace Hotel_Management.Models
         Single,
         Double,
         Suite,
-        Vip
+        Vip,
+        Twin,
+        Family
     }
     public class RoomModel
     {

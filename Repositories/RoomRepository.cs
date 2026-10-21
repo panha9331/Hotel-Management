@@ -9,7 +9,7 @@ namespace Hotel_Management.Repositories
     public class RoomRepository
     {
         public void AddRoom(
-            int roomId,
+            //int roomId,
             int roomNumber,
             string roomType,
             decimal pricePerNight,
@@ -17,13 +17,13 @@ namespace Hotel_Management.Repositories
         )
         {
             string query = @"
-                INSERT INTO dbo.ROOMS (room_id, room_number, room_type, price, room_status)
-                VALUES (@id, @number, @type, @price, @status);";
+                INSERT INTO dbo.ROOMS (room_number, room_type, price, room_status)
+                VALUES (@number, @type, @price, @status);";
 
             using var connection = DatabaseConnection.GetConnection();
             using var cmd = new SqlCommand(query, connection);
 
-            cmd.Parameters.AddWithValue("@id", roomId);
+            //cmd.Parameters.AddWithValue("@id", roomId);
             cmd.Parameters.AddWithValue("@number", roomNumber);
             cmd.Parameters.AddWithValue("@type", roomType);
             cmd.Parameters.AddWithValue("@price", pricePerNight);

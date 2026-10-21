@@ -18,6 +18,37 @@ namespace Hotel_Management.Services
             _state = state;
         }
 
+        public decimal GetPriceByRoomType(RoomType selectedRoomType) => selectedRoomType switch
+        {
+            RoomType.Single => 100m,
+            RoomType.Double => 150m,
+            RoomType.Twin => 200m,
+            RoomType.Suite => 250m,
+            RoomType.Family => 300m,
+            RoomType.Vip => 500m,
+            _ => 0m // Default fallback
+        };
+        public int GetNextRoomId()
+        {
+            var rooms = _state.Rooms;
+            int nextRoomId = rooms.Any() ? rooms.Max(r => r.RoomId) + 1 : 1;
+            //_state.NextRoomId = nextRoomId;
+            return nextRoomId;
+
+        }
+        public RoomSummary GetRoomSummary()
+        {
+            var rooms = _state.Rooms;
+            var summary = new RoomSummary
+            {
+                totalRooms = rooms.Count,
+                availableRooms = rooms.Count(r => r.Status.Equals(RoomStatus.Available)),
+                occupiedRooms = rooms.Count(r => r.Status.Equals(RoomStatus.Occupied)),
+                reservedRooms = rooms.Count(r => r.Status.Equals(RoomStatus.Reserved))
+            };
+            return summary;
+        }
+
         //Reads the current in-memory collection
         public IReadOnlyList<RoomModel> GetRooms()
         {
@@ -33,21 +64,21 @@ namespace Hotel_Management.Services
         }
 
         public void AddRoom(
-            int roomId,
+            //int roomId,
             int roomNumber,
             string roomType,
             decimal pricePerNight,
             string roomStatus)
         {
             ValidateRoom(
-                roomId,
+                //roomId,
                 roomNumber,
                 roomType,
                 pricePerNight,
                 roomStatus);
 
             _roomRepository.AddRoom(
-                roomId,
+                //roomId,
                 roomNumber,
                 roomType.Trim(),
                 pricePerNight,
@@ -62,7 +93,7 @@ namespace Hotel_Management.Services
             string roomStatus)
         {
             ValidateRoom(
-                roomId,
+                //roomId,
                 roomNumber,
                 roomType,
                 pricePerNight,
@@ -88,15 +119,15 @@ namespace Hotel_Management.Services
         }
 
         private static void ValidateRoom(
-            int roomId,
+            //int roomId,
             int roomNumber,
             string roomType,
             decimal pricePerNight,
             string roomStatus)
         {
-            if (roomId <= 0)
-                throw new ArgumentException(
-                    "Room ID must be greater than zero.");
+            //if (roomId <= 0)
+            //    throw new ArgumentException(
+            //        "Room ID must be greater than zero.");
 
             if (roomNumber <= 0)
                 throw new ArgumentException(
@@ -110,22 +141,11 @@ namespace Hotel_Management.Services
                 throw new ArgumentException(
                     "Price per night must be greater than zero.");
 
-            string[] allowedStatuses =
-            {
-                "Available",
-                "Occupied",
-                "Maintenance",
-                "Reserved",
-            };
+            if (!Enum.IsDefined(typeof(RoomType), roomType))
+                throw new ArgumentException("Invalid room type.");
 
-            if (string.IsNullOrWhiteSpace(roomStatus) ||
-                !allowedStatuses.Contains(
-                    roomStatus.Trim(),
-                    StringComparer.OrdinalIgnoreCase))
-            {
-                throw new ArgumentException(
-                    "Invalid room status.");
-            }
+            if (!Enum.IsDefined(typeof(RoomStatus), roomStatus))
+                throw new ArgumentException("Invalid room status.");
         }
     }
 }
