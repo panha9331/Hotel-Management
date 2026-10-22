@@ -39,7 +39,6 @@ namespace Hotel_Management.Repositories
                 Console.WriteLine("[CREATE ERROR] " + ex.Message);
             }
         }
-
         public void UpdateRoom(
             int roomId,
             int roomNumber,
@@ -52,7 +51,7 @@ namespace Hotel_Management.Repositories
                 UPDATE dbo.ROOMS 
                 SET room_number = @number, 
                     room_type = @roomType, 
-                    price_per_night = @price, 
+                    price = @price, 
                     room_status = @status 
                 WHERE room_id = @id";
 

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Krypton.Toolkit.KryptonLabel kryptonLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             lblPageTitle = new Label();
             panel5 = new Panel();
-            label2 = new Label();
-            dateTime = new Label();
+            lbTime = new Label();
+            lbDate = new Label();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
@@ -53,6 +54,7 @@
             label4 = new Label();
             label3 = new Label();
             pnlContent = new Panel();
+            timer = new System.Windows.Forms.Timer(components);
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -106,8 +108,8 @@
             // 
             panel5.Anchor = AnchorStyles.Right;
             panel5.BackColor = Color.Transparent;
-            panel5.Controls.Add(label2);
-            panel5.Controls.Add(dateTime);
+            panel5.Controls.Add(lbTime);
+            panel5.Controls.Add(lbDate);
             panel5.Controls.Add(pictureBox3);
             panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(kryptonRichTextBox1);
@@ -116,27 +118,27 @@
             panel5.Size = new Size(615, 81);
             panel5.TabIndex = 6;
             // 
-            // label2
+            // lbTime
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semilight", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(437, 34);
-            label2.Name = "label2";
-            label2.Size = new Size(162, 23);
-            label2.TabIndex = 5;
-            label2.Text = "System Time: UTC+7";
+            lbTime.AutoSize = true;
+            lbTime.BackColor = Color.Transparent;
+            lbTime.Font = new Font("Segoe UI Semilight", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbTime.Location = new Point(437, 34);
+            lbTime.Name = "lbTime";
+            lbTime.Size = new Size(162, 23);
+            lbTime.TabIndex = 5;
+            lbTime.Text = "System Time: UTC+7";
             // 
-            // dateTime
+            // lbDate
             // 
-            dateTime.AutoSize = true;
-            dateTime.BackColor = Color.Transparent;
-            dateTime.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dateTime.Location = new Point(486, 11);
-            dateTime.Name = "dateTime";
-            dateTime.Size = new Size(113, 23);
-            dateTime.TabIndex = 5;
-            dateTime.Text = "Oct 03, 2026";
+            lbDate.AutoSize = true;
+            lbDate.BackColor = Color.Transparent;
+            lbDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbDate.Location = new Point(486, 11);
+            lbDate.Name = "lbDate";
+            lbDate.Size = new Size(113, 23);
+            lbDate.TabIndex = 5;
+            lbDate.Text = "Oct 03, 2026";
             // 
             // pictureBox3
             // 
@@ -401,6 +403,11 @@
             pnlContent.TabIndex = 2;
             pnlContent.Paint += pnlContent_Paint;
             // 
+            // timer
+            // 
+            timer.Enabled = true;
+            timer.Tick += timer_Tick;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -450,8 +457,8 @@
         private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private Label label2;
-        private Label dateTime;
+        private Label lbTime;
+        private Label lbDate;
         private Panel panel4;
         private PictureBox pictureBox4;
         private Label label4;
@@ -460,5 +467,6 @@
         private Panel panel5;
         private Label lblPageTitle;
         private PictureBox pictureBox5;
+        private System.Windows.Forms.Timer timer;
     }
 }

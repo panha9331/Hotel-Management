@@ -282,6 +282,7 @@
             btRoomUpdate.TabIndex = 6;
             btRoomUpdate.Values.DropDownArrowColor = Color.Empty;
             btRoomUpdate.Values.Text = "UPDATE";
+            btRoomUpdate.Click += btRoomUpdate_Click;
             // 
             // pricePerNight
             // 
@@ -342,6 +343,7 @@
             Clear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             Clear.UseAccentColor = false;
             Clear.UseVisualStyleBackColor = true;
+            Clear.Click += Clear_Click;
             // 
             // btRoomDelete
             // 
@@ -363,6 +365,7 @@
             btRoomDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btRoomDelete.UseAccentColor = true;
             btRoomDelete.UseVisualStyleBackColor = true;
+            btRoomDelete.Click += btRoomDelete_Click;
             // 
             // btRoomAdd
             // 
@@ -532,6 +535,7 @@
             filterType.Sorted = true;
             filterType.TabIndex = 4;
             filterType.Text = "All Types";
+            filterType.SelectedIndexChanged += filterType_SelectedIndexChanged;
             // 
             // filterStatus
             // 
@@ -548,6 +552,7 @@
             filterStatus.Sorted = true;
             filterStatus.TabIndex = 4;
             filterStatus.Text = "All Statuses";
+            filterStatus.SelectedIndexChanged += filterStatus_SelectedIndexChanged;
             // 
             // btRoomRest
             // 
@@ -569,6 +574,7 @@
             btRoomRest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btRoomRest.UseAccentColor = false;
             btRoomRest.UseVisualStyleBackColor = true;
+            btRoomRest.Click += btRoomRest_Click;
             // 
             // materialCard7
             // 
@@ -598,6 +604,7 @@
             dgvRooms.RowHeadersWidth = 51;
             dgvRooms.Size = new Size(805, 481);
             dgvRooms.TabIndex = 6;
+            dgvRooms.SelectionChanged += dgvRooms_SelectionChanged;
             // 
             // RoomControl
             // 

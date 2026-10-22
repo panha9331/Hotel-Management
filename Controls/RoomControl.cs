@@ -41,11 +41,8 @@ namespace Hotel_Management.RoomManagement
 
         private void btRoomAdd_Click(object sender, EventArgs e)
         {
-
             try
             {
-
-
                 // Assign to model
                 RoomType roomTypeSelected = (RoomType)roomType.SelectedItem!;
                 RoomStatus roomStatusSelected = (RoomStatus)roomStatus.SelectedItem!;
@@ -63,13 +60,8 @@ namespace Hotel_Management.RoomManagement
 
                 UpdateRoomSummary();
 
-
                 LoadDgvRooms();
-
-
-
                 MessageBox.Show("Room added successfully.");
-
             }
             catch (ArgumentException ex)
             {
@@ -89,18 +81,7 @@ namespace Hotel_Management.RoomManagement
                 MessageBox.Show(
                     "Database operation failed. Check the database and room data.");
             }
-
-            // Optional: Clear fields after successful insert
-            // ClearFormFields();
-
-            //Console.WriteLine("==> Room ID: " + roomModel.RoomId);
-            //Console.WriteLine("==> " + roomModel.RoomNumber);
-            //Console.WriteLine("==> " + roomModel.RoomType);
-            //Console.WriteLine("==> " + roomModel.Price);
-            //Console.WriteLine("==> " + roomModel.Status);
         }
-
-
         private void GetPriceByRoomType()
         {
             if (roomType.SelectedItem is not RoomType selectedRoomType)
@@ -128,24 +109,25 @@ namespace Hotel_Management.RoomManagement
         private void LoadDgvRooms()
         {
             dgvRooms.DataSource = _roomService.GetRooms().ToList();
-
-
-
-
-            // 2. Set custom column widths (in pixels)
-            dgvRooms.Columns["RoomId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvRooms.Columns["RoomNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dgvRooms.Columns["RoomType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Stretches to fill space
-            dgvRooms.Columns["Price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvRooms.Columns["Status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CustomDgvRoom();
         }
 
         private void LoadComboBoxes()
         {
             roomType.DataSource = Enum.GetValues(typeof(RoomType));
             roomStatus.DataSource = Enum.GetValues(typeof(RoomStatus));
-            filterStatus.DataSource = Enum.GetValues(typeof(RoomStatus));
-            filterType.DataSource = Enum.GetValues(typeof(RoomType));
+
+            var statusList = Enum.GetNames(typeof(RoomStatus)).ToList();
+
+            statusList.Insert(0, "All Statuses");
+
+            var typeList = Enum.GetNames(typeof(RoomType)).ToList();
+            typeList.Insert(0, "All Types");
+
+            filterStatus.DataSource = statusList;
+            filterType.DataSource = typeList;
+
+
 
         }
 
@@ -157,5 +139,125 @@ namespace Hotel_Management.RoomManagement
             }
         }
 
+        private void btRoomDelete_Click(object sender, EventArgs e)
+        {
+            var selectedRoom = dgvRooms.CurrentRow?.DataBoundItem as RoomModel;
+            try
+            {
+                _roomService.DeleteRoom(selectedRoom.RoomId);
+                _roomService.LoadRoom();
+                LoadDgvRooms();
+                UpdateRoomSummary();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error occurred while deleting room: " + ex.Message);
+            }
+        }
+
+        private void btRoomUpdate_Click(object sender, EventArgs e)
+        {
+            var selectedRoom = dgvRooms.CurrentRow?.DataBoundItem as RoomModel;
+
+            RoomType roomTypeSelected = (RoomType)roomType.SelectedItem!;
+            RoomStatus roomStatusSelected = (RoomStatus)roomStatus.SelectedItem!;
+
+            try
+            {
+                _roomService.UpdateRoom(
+                    selectedRoom.RoomId,
+                    int.Parse(roomNumber.Text),
+                    roomTypeSelected.ToString(),
+                    decimal.Parse(pricePerNight.Text),
+                    roomStatusSelected.ToString()
+                );
+                _roomService.LoadRoom();
+                LoadDgvRooms();
+                UpdateRoomSummary();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error occurred while updating room: " + ex.Message);
+            }
+        }
+        public void ClearFormFields()
+        {
+            roomNumber.Clear();
+            roomType.SelectedIndex = 2;
+            pricePerNight.Value = 0;
+            roomStatus.SelectedIndex = 0;
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            ClearFormFields();
+        }
+
+        private void ReloadInputFiled()
+        {
+            var selectedRoom = dgvRooms.CurrentRow?.DataBoundItem as RoomModel;
+
+            roomNumber.Text = selectedRoom?.RoomNumber.ToString();
+            roomType.Text = selectedRoom?.RoomType.ToString();
+            roomStatus.Text = selectedRoom?.Status.ToString();
+            pricePerNight.Value = selectedRoom.Price;
+
+        }
+
+        private void dgvRooms_SelectionChanged(object sender, EventArgs e)
+        {
+            ReloadInputFiled();
+        }
+
+        private void filterType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Console.WriteLine(filterType.Text);
+            ApplyRoomFilter();
+        }
+
+        private void ApplyRoomFilter()
+        {
+            string? roomType =
+                filterType.SelectedIndex <= 0
+                    ? null
+                    : filterType.SelectedItem?.ToString();
+
+            string? roomStatus =
+                filterStatus.SelectedIndex <= 0
+                    ? null
+                    : filterStatus.SelectedItem?.ToString();
+
+
+            dgvRooms.DataSource = null;
+            dgvRooms.DataSource = _roomService
+                .FilterRooms(roomType, roomStatus)
+                .ToList();
+
+            CustomDgvRoom();
+
+
+        }
+
+        private void filterStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyRoomFilter();
+        }
+
+        private void btRoomRest_Click(object sender, EventArgs e)
+        {
+            filterStatus.SelectedIndex = 0;
+            filterType.SelectedIndex = 0;
+        }
+
+        private void CustomDgvRoom()
+        {
+            dgvRooms.Columns["RoomId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvRooms.Columns["RoomNumber"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dgvRooms.Columns["RoomType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Stretches to fill space
+            dgvRooms.Columns["Price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvRooms.Columns["Status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            //dgvRooms.Columns["Status"].
+        }
     }
 }

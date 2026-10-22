@@ -16,7 +16,10 @@ namespace Hotel_Management
         public Main()
         {
             InitializeComponent();
-            
+
+            lbDate.Text = DateTime.Now.ToString("MMM, dd yyyy");
+
+
             _roomRepository = new RoomRepository();
             _stateModel = new StateModel();
             _roomService = new RoomService(_roomRepository, _stateModel);
@@ -40,7 +43,6 @@ namespace Hotel_Management
 
         private void Main_Load(object sender, EventArgs e)
         {
-
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
@@ -80,6 +82,11 @@ namespace Hotel_Management
         private void Main_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lbTime.Text = $"System : {DateTime.Now.ToString("hh:mm:ss tt")}";
         }
     }
 }

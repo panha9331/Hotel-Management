@@ -18,6 +18,32 @@ namespace Hotel_Management.Services
             _state = state;
         }
 
+        public IEnumerable<RoomModel> FilterRooms(
+            string? roomType,
+            string? roomStatus)
+        {
+            IEnumerable<RoomModel> rooms = _state.Rooms;
+
+            // Filter by room type
+            if (!string.IsNullOrWhiteSpace(roomType)
+                && roomType != "All Types")
+            {
+                rooms = rooms.Where(r =>
+                    r.RoomType.ToString() == roomType);
+            }
+
+            // Filter by room status
+            if (!string.IsNullOrWhiteSpace(roomStatus)
+                && roomStatus != "All Statuses")
+            {
+                rooms = rooms.Where(r =>
+                    r.Status.ToString() == roomStatus);
+            }
+
+            return rooms.ToList();
+        }
+
+
         public decimal GetPriceByRoomType(RoomType selectedRoomType) => selectedRoomType switch
         {
             RoomType.Single => 100m,
@@ -60,7 +86,7 @@ namespace Hotel_Management.Services
         {
             //calls GetAllRooms() and stores the results in AppState so other forms can reuse them.
             _state.Rooms = _roomRepository.GetAllRoom();
-        
+
         }
 
         public void AddRoom(
