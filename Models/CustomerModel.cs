@@ -4,14 +4,19 @@ using System.Text;
 
 namespace Hotel_Management.Models
 {
+    public class CustomerSummary {
+        public int TotalCustomers { get; set; }
+        public int TotalCustomerMale { get; set; }
+        public int TotalCustomerFemale { get; set; }
+        public int TotalCutomerThisMonth { get; set; }
+    }
     public class CustomerModel
     {
         public int CustomerID { get; set; }
         public string CustomerName { get; set; }
-        public string gender { get; set; } = string.Empty;
-        public string phone { get; set; } = string.Empty;
-        public string email { get; set; } = string.Empty;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public string Gender { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
 
     }
 }

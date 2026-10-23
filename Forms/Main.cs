@@ -11,7 +11,12 @@ namespace Hotel_Management
     {
 
         private readonly RoomService _roomService;
+        private readonly CustomerService _customerService;
+        private readonly ReservationService _reservationService;
         private readonly RoomRepository _roomRepository;
+        private readonly CustomerRepository _customerRepository;
+        private readonly ReservationRepository _reservationRepository;
+
         private readonly StateModel _stateModel;
         public Main()
         {
@@ -19,10 +24,14 @@ namespace Hotel_Management
 
             lbDate.Text = DateTime.Now.ToString("MMM, dd yyyy");
 
+            _stateModel = new StateModel();
 
             _roomRepository = new RoomRepository();
-            _stateModel = new StateModel();
             _roomService = new RoomService(_roomRepository, _stateModel);
+
+            _customerRepository = new CustomerRepository();
+            _customerService = new CustomerService(_customerRepository, _stateModel);
+            
 
             LoadControl(new RoomControl(_roomService, _roomRepository));
             lblPageTitle.Text = "Room Management";
@@ -64,7 +73,7 @@ namespace Hotel_Management
 
         private void btCustomer_Click(object sender, EventArgs e)
         {
-            LoadControl(new CustomerControl());
+            LoadControl(new CustomerControl(_customerService, _customerRepository));
             lblPageTitle.Text = "Customer Management";
         }
 

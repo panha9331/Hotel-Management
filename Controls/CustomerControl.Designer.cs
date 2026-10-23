@@ -29,44 +29,41 @@ namespace Hotel_Management.Controls
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            comboBox2 = new ComboBox();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            materialButton4 = new MaterialSkin.Controls.MaterialButton();
-            materialButton3 = new MaterialSkin.Controls.MaterialButton();
-            label18 = new Label();
+        private void InitializeComponent() {
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            cbGender = new ComboBox();
+            btUpdateCustomer = new Krypton.Toolkit.KryptonButton();
+            btClear = new MaterialSkin.Controls.MaterialButton();
+            btDeleteCustomer = new MaterialSkin.Controls.MaterialButton();
             internalSearchableExceptionTreeView1 = new Krypton.Toolkit.InternalSearchableExceptionTreeView();
             materialCard6 = new MaterialSkin.Controls.MaterialCard();
-            comboBox1 = new ComboBox();
-            kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
-            materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            kryptonListBox1 = new Krypton.Toolkit.KryptonListBox();
+            filterByGender = new ComboBox();
+            txtSearch = new Krypton.Toolkit.KryptonRichTextBox();
+            btFilterRest = new MaterialSkin.Controls.MaterialButton();
             materialCard7 = new MaterialSkin.Controls.MaterialCard();
-            label21 = new Label();
-            label20 = new Label();
-            label19 = new Label();
-            label17 = new Label();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            dgvCustomers = new DataGridView();
+            btAddCustomer = new MaterialSkin.Controls.MaterialButton();
             materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            label8 = new Label();
+            lbTotalCustomerThisMonth = new Label();
             label9 = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            label3 = new Label();
+            lbTotalCustomer = new Label();
             lbTotalRoom = new Label();
             label2 = new Label();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            label4 = new Label();
+            lbTotalMale = new Label();
             label5 = new Label();
             materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            label6 = new Label();
+            lbTotalFemale = new Label();
             label7 = new Label();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
             label16 = new Label();
             label15 = new Label();
-            kryptonMaskedTextBox3 = new Krypton.Toolkit.KryptonMaskedTextBox();
-            kryptonMaskedTextBox2 = new Krypton.Toolkit.KryptonMaskedTextBox();
-            kryptonMaskedTextBox1 = new Krypton.Toolkit.KryptonMaskedTextBox();
+            txtEmail = new Krypton.Toolkit.KryptonMaskedTextBox();
+            txtPhone = new Krypton.Toolkit.KryptonMaskedTextBox();
+            txtCustomerName = new Krypton.Toolkit.KryptonMaskedTextBox();
             label14 = new Label();
             txtRoomId = new Krypton.Toolkit.KryptonMaskedTextBox();
             label10 = new Label();
@@ -76,6 +73,7 @@ namespace Hotel_Management.Controls
             label1 = new Label();
             materialCard6.SuspendLayout();
             materialCard7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
             materialCard3.SuspendLayout();
             materialCard1.SuspendLayout();
             materialCard2.SuspendLayout();
@@ -83,85 +81,78 @@ namespace Hotel_Management.Controls
             materialCard4.SuspendLayout();
             SuspendLayout();
             // 
-            // comboBox2
+            // cbGender
             // 
-            comboBox2.AllowDrop = true;
-            comboBox2.Cursor = Cursors.Hand;
-            comboBox2.DisplayMember = "Anvailable";
-            comboBox2.FlatStyle = FlatStyle.System;
-            comboBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Female (F)", "Male (M)", "Other (N)" });
-            comboBox2.Location = new Point(29, 261);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(326, 36);
-            comboBox2.Sorted = true;
-            comboBox2.TabIndex = 4;
-            comboBox2.Text = "Male (M)";
+            cbGender.AllowDrop = true;
+            cbGender.Cursor = Cursors.Hand;
+            cbGender.DisplayMember = "Anvailable";
+            cbGender.FlatStyle = FlatStyle.System;
+            cbGender.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbGender.FormattingEnabled = true;
+            cbGender.Items.AddRange(new object[] { "Female", "Male", "Other" });
+            cbGender.Location = new Point(29, 261);
+            cbGender.Name = "cbGender";
+            cbGender.Size = new Size(326, 36);
+            cbGender.Sorted = true;
+            cbGender.TabIndex = 4;
+            cbGender.Text = "Male";
             // 
-            // kryptonButton1
+            // btUpdateCustomer
             // 
-            kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(200, 496);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.Size = new Size(158, 36);
-            kryptonButton1.StateCommon.Border.Rounding = 4F;
-            kryptonButton1.TabIndex = 3;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "UPDATE";
+            btUpdateCustomer.ButtonStyle = Krypton.Toolkit.ButtonStyle.Gallery;
+            btUpdateCustomer.Cursor = Cursors.Hand;
+            btUpdateCustomer.Location = new Point(200, 496);
+            btUpdateCustomer.Name = "btUpdateCustomer";
+            btUpdateCustomer.Size = new Size(158, 36);
+            btUpdateCustomer.StateCommon.Border.Rounding = 4F;
+            btUpdateCustomer.TabIndex = 3;
+            btUpdateCustomer.Values.DropDownArrowColor = Color.Empty;
+            btUpdateCustomer.Values.Text = "UPDATE";
+            btUpdateCustomer.Click += btUpdateCustomer_Click;
             // 
-            // materialButton4
+            // btClear
             // 
-            materialButton4.AutoSize = false;
-            materialButton4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton4.Cursor = Cursors.Hand;
-            materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton4.Depth = 0;
-            materialButton4.HighEmphasis = true;
-            materialButton4.Icon = null;
-            materialButton4.Location = new Point(200, 550);
-            materialButton4.Margin = new Padding(4, 6, 4, 6);
-            materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton4.Name = "materialButton4";
-            materialButton4.NoAccentTextColor = Color.Empty;
-            materialButton4.Size = new Size(158, 36);
-            materialButton4.TabIndex = 5;
-            materialButton4.Text = "Clear";
-            materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton4.UseAccentColor = false;
-            materialButton4.UseVisualStyleBackColor = true;
+            btClear.AutoSize = false;
+            btClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btClear.Cursor = Cursors.Hand;
+            btClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btClear.Depth = 0;
+            btClear.HighEmphasis = true;
+            btClear.Icon = null;
+            btClear.Location = new Point(200, 550);
+            btClear.Margin = new Padding(4, 6, 4, 6);
+            btClear.MouseState = MaterialSkin.MouseState.HOVER;
+            btClear.Name = "btClear";
+            btClear.NoAccentTextColor = Color.Empty;
+            btClear.Size = new Size(158, 36);
+            btClear.TabIndex = 5;
+            btClear.Text = "Clear";
+            btClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btClear.UseAccentColor = false;
+            btClear.UseVisualStyleBackColor = true;
+            btClear.Click += btClear_Click;
             // 
-            // materialButton3
+            // btDeleteCustomer
             // 
-            materialButton3.AutoSize = false;
-            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton3.Cursor = Cursors.Hand;
-            materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton3.Depth = 0;
-            materialButton3.HighEmphasis = true;
-            materialButton3.Icon = null;
-            materialButton3.Location = new Point(35, 550);
-            materialButton3.Margin = new Padding(4, 6, 4, 6);
-            materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton3.Name = "materialButton3";
-            materialButton3.NoAccentTextColor = Color.Empty;
-            materialButton3.Size = new Size(158, 36);
-            materialButton3.TabIndex = 5;
-            materialButton3.Text = "Delete";
-            materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton3.UseAccentColor = true;
-            materialButton3.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(197, 18);
-            label18.Name = "label18";
-            label18.Size = new Size(118, 28);
-            label18.TabIndex = 5;
-            label18.Text = "FULL NAME";
+            btDeleteCustomer.AutoSize = false;
+            btDeleteCustomer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btDeleteCustomer.Cursor = Cursors.Hand;
+            btDeleteCustomer.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btDeleteCustomer.Depth = 0;
+            btDeleteCustomer.HighEmphasis = true;
+            btDeleteCustomer.Icon = null;
+            btDeleteCustomer.Location = new Point(35, 550);
+            btDeleteCustomer.Margin = new Padding(4, 6, 4, 6);
+            btDeleteCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            btDeleteCustomer.Name = "btDeleteCustomer";
+            btDeleteCustomer.NoAccentTextColor = Color.Empty;
+            btDeleteCustomer.Size = new Size(158, 36);
+            btDeleteCustomer.TabIndex = 5;
+            btDeleteCustomer.Text = "Delete";
+            btDeleteCustomer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btDeleteCustomer.UseAccentColor = true;
+            btDeleteCustomer.UseVisualStyleBackColor = true;
+            btDeleteCustomer.Click += btDeleteCustomer_Click;
             // 
             // internalSearchableExceptionTreeView1
             // 
@@ -175,9 +166,9 @@ namespace Hotel_Management.Controls
             // materialCard6
             // 
             materialCard6.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard6.Controls.Add(comboBox1);
-            materialCard6.Controls.Add(kryptonRichTextBox1);
-            materialCard6.Controls.Add(materialButton2);
+            materialCard6.Controls.Add(filterByGender);
+            materialCard6.Controls.Add(txtSearch);
+            materialCard6.Controls.Add(btFilterRest);
             materialCard6.Depth = 0;
             materialCard6.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard6.Location = new Point(452, 264);
@@ -188,89 +179,62 @@ namespace Hotel_Management.Controls
             materialCard6.Size = new Size(837, 78);
             materialCard6.TabIndex = 7;
             // 
-            // comboBox1
+            // filterByGender
             // 
-            comboBox1.AllowDrop = true;
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.DisplayMember = "Anvailable";
-            comboBox1.FlatStyle = FlatStyle.System;
-            comboBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Female (F)", "Male (M)", "Other (N)" });
-            comboBox1.Location = new Point(586, 23);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(119, 36);
-            comboBox1.Sorted = true;
-            comboBox1.TabIndex = 4;
-            comboBox1.Text = "All Gender";
+            filterByGender.AllowDrop = true;
+            filterByGender.Cursor = Cursors.Hand;
+            filterByGender.DisplayMember = "Anvailable";
+            filterByGender.FlatStyle = FlatStyle.System;
+            filterByGender.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            filterByGender.FormattingEnabled = true;
+            filterByGender.Items.AddRange(new object[] { "Female (F)", "Male (M)", "Other (N)" });
+            filterByGender.Location = new Point(586, 23);
+            filterByGender.Name = "filterByGender";
+            filterByGender.Size = new Size(119, 36);
+            filterByGender.Sorted = true;
+            filterByGender.TabIndex = 4;
+            filterByGender.Text = "All Gender";
             // 
-            // kryptonRichTextBox1
+            // txtSearch
             // 
-            kryptonRichTextBox1.AlwaysActive = false;
-            kryptonRichTextBox1.Cursor = Cursors.IBeam;
-            kryptonRichTextBox1.Location = new Point(23, 22);
-            kryptonRichTextBox1.Name = "kryptonRichTextBox1";
-            kryptonRichTextBox1.Size = new Size(557, 36);
-            kryptonRichTextBox1.StateActive.Border.Color1 = Color.Red;
-            kryptonRichTextBox1.StateActive.Border.Rounding = 8F;
-            kryptonRichTextBox1.StateNormal.Border.Color1 = Color.FromArgb(128, 255, 128);
-            kryptonRichTextBox1.StateNormal.Border.Rounding = 8F;
-            kryptonRichTextBox1.TabIndex = 1;
-            kryptonRichTextBox1.Text = "Search by ID, Full Name, Phone...";
+            txtSearch.AlwaysActive = false;
+            txtSearch.Cursor = Cursors.IBeam;
+            txtSearch.Location = new Point(23, 22);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(557, 36);
+            txtSearch.StateActive.Border.Color1 = Color.Red;
+            txtSearch.StateActive.Border.Rounding = 8F;
+            txtSearch.StateNormal.Border.Color1 = Color.FromArgb(128, 255, 128);
+            txtSearch.StateNormal.Border.Rounding = 8F;
+            txtSearch.TabIndex = 1;
+            txtSearch.Text = "Search by ID, Full Name, Phone...";
             // 
-            // materialButton2
+            // btFilterRest
             // 
-            materialButton2.AutoSize = false;
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Cursor = Cursors.Hand;
-            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.Location = new Point(714, 22);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(103, 36);
-            materialButton2.TabIndex = 5;
-            materialButton2.Text = "Rest";
-            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
-            // 
-            // kryptonListBox1
-            // 
-            kryptonListBox1.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridHeaderRowList;
-            kryptonListBox1.BorderStyle = Krypton.Toolkit.PaletteBorderStyle.GridHeaderColumnCustom2;
-            kryptonListBox1.Cursor = Cursors.Hand;
-            kryptonListBox1.Items.AddRange(new object[] { "C001\t\t\t\t\t\t     Moeurn Panha\t\t      Male\t\t\t 087655117\t\tmoeurn.panha.dev@gmail.com", "C001\t\t\t\t\t\t     Moeurn Panha\t\t      Male\t\t\t 087655117\t\tmoeurn.panha.dev@gmail.com", "C001\t\t\t\t\t\t     Moeurn Panha\t\t      Male\t\t\t 087655117\t\tmoeurn.panha.dev@gmail.com", "C001\t\t\t\t\t\t     Moeurn Panha\t\t      Male\t\t\t 087655117\t\tmoeurn.panha.dev@gmail.com", "C001\t\t\t\t\t\t     Moeurn Panha\t\t      Male\t\t\t 087655117\t\tmoeurn.panha.dev@gmail.com", "C001\t\t\t\t\t\t     Moeurn Panha\t\t      Male\t\t\t 087655117\t\tmoeurn.panha.dev@gmail.com" });
-            kryptonListBox1.Location = new Point(452, 414);
-            kryptonListBox1.Name = "kryptonListBox1";
-            kryptonListBox1.Size = new Size(837, 458);
-            kryptonListBox1.StateCheckedNormal.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonListBox1.StateCheckedPressed.Item.Back.Color1 = Color.FromArgb(255, 128, 255);
-            kryptonListBox1.StateCheckedPressed.Item.Border.Color1 = Color.FromArgb(192, 255, 255);
-            kryptonListBox1.StateCheckedPressed.Item.Border.Rounding = 4F;
-            kryptonListBox1.StateCheckedPressed.Item.Content.ShortText.Color1 = Color.FromArgb(128, 255, 128);
-            kryptonListBox1.StateCheckedPressed.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonListBox1.StateCommon.Border.Color1 = Color.FromArgb(128, 255, 255);
-            kryptonListBox1.StateCommon.Border.Rounding = 8F;
-            kryptonListBox1.StateCommon.Item.Content.AdjacentGap = 5;
-            kryptonListBox1.StateCommon.Item.Content.Padding = new Padding(-1, 5, -1, 5);
-            kryptonListBox1.StateCommon.Item.Content.ShortText.Color1 = Color.DarkViolet;
-            kryptonListBox1.StateCommon.Item.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.SolidInside;
-            kryptonListBox1.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonListBox1.TabIndex = 15;
+            btFilterRest.AutoSize = false;
+            btFilterRest.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btFilterRest.Cursor = Cursors.Hand;
+            btFilterRest.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btFilterRest.Depth = 0;
+            btFilterRest.HighEmphasis = true;
+            btFilterRest.Icon = null;
+            btFilterRest.Location = new Point(714, 22);
+            btFilterRest.Margin = new Padding(4, 6, 4, 6);
+            btFilterRest.MouseState = MaterialSkin.MouseState.HOVER;
+            btFilterRest.Name = "btFilterRest";
+            btFilterRest.NoAccentTextColor = Color.Empty;
+            btFilterRest.Size = new Size(103, 36);
+            btFilterRest.TabIndex = 5;
+            btFilterRest.Text = "Rest";
+            btFilterRest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btFilterRest.UseAccentColor = false;
+            btFilterRest.UseVisualStyleBackColor = true;
+            btFilterRest.Click += btFilterRest_Click;
             // 
             // materialCard7
             // 
             materialCard7.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard7.Controls.Add(label21);
-            materialCard7.Controls.Add(label20);
-            materialCard7.Controls.Add(label19);
-            materialCard7.Controls.Add(label18);
-            materialCard7.Controls.Add(label17);
+            materialCard7.Controls.Add(dgvCustomers);
             materialCard7.Depth = 0;
             materialCard7.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard7.Location = new Point(452, 359);
@@ -281,71 +245,73 @@ namespace Hotel_Management.Controls
             materialCard7.Size = new Size(837, 513);
             materialCard7.TabIndex = 8;
             // 
-            // label21
+            // dgvCustomers
             // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(663, 16);
-            label21.Name = "label21";
-            label21.Size = new Size(69, 28);
-            label21.TabIndex = 5;
-            label21.Text = "EMAIL";
+            dgvCustomers.AllowUserToAddRows = false;
+            dgvCustomers.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Red;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCustomers.Cursor = Cursors.Hand;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvCustomers.DefaultCellStyle = dataGridViewCellStyle5;
+            dgvCustomers.Dock = DockStyle.Fill;
+            dgvCustomers.EnableHeadersVisualStyles = false;
+            dgvCustomers.Location = new Point(16, 16);
+            dgvCustomers.Name = "dgvCustomers";
+            dgvCustomers.ReadOnly = true;
+            dgvCustomers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.Lime;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvCustomers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgvCustomers.RowHeadersWidth = 51;
+            dgvCustomers.ScrollBars = ScrollBars.Horizontal;
+            dgvCustomers.Size = new Size(805, 481);
+            dgvCustomers.TabIndex = 7;
             // 
-            // label20
+            // btAddCustomer
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(501, 16);
-            label20.Name = "label20";
-            label20.Size = new Size(79, 28);
-            label20.TabIndex = 5;
-            label20.Text = "PHONE";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(369, 16);
-            label19.Name = "label19";
-            label19.Size = new Size(87, 28);
-            label19.TabIndex = 5;
-            label19.Text = "GENDER";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(19, 16);
-            label17.Name = "label17";
-            label17.Size = new Size(140, 28);
-            label17.TabIndex = 5;
-            label17.Text = "CUSTOMER ID";
-            // 
-            // materialButton1
-            // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Cursor = Cursors.Hand;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(35, 496);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(158, 36);
-            materialButton1.TabIndex = 5;
-            materialButton1.Text = "Add Customer";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btAddCustomer.AutoSize = false;
+            btAddCustomer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btAddCustomer.Cursor = Cursors.Hand;
+            btAddCustomer.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btAddCustomer.Depth = 0;
+            btAddCustomer.HighEmphasis = true;
+            btAddCustomer.Icon = null;
+            btAddCustomer.Location = new Point(35, 496);
+            btAddCustomer.Margin = new Padding(4, 6, 4, 6);
+            btAddCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            btAddCustomer.Name = "btAddCustomer";
+            btAddCustomer.NoAccentTextColor = Color.Empty;
+            btAddCustomer.Size = new Size(158, 36);
+            btAddCustomer.TabIndex = 5;
+            btAddCustomer.Text = "Add Customer";
+            btAddCustomer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btAddCustomer.UseAccentColor = false;
+            btAddCustomer.UseVisualStyleBackColor = true;
+            btAddCustomer.Click += btAddCustomer_Click;
             // 
             // materialCard3
             // 
             materialCard3.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard3.Controls.Add(label8);
+            materialCard3.Controls.Add(lbTotalCustomerThisMonth);
             materialCard3.Controls.Add(label9);
             materialCard3.Depth = 0;
             materialCard3.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -357,16 +323,16 @@ namespace Hotel_Management.Controls
             materialCard3.Size = new Size(288, 106);
             materialCard3.TabIndex = 9;
             // 
-            // label8
+            // lbTotalCustomerThisMonth
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Lime;
-            label8.Location = new Point(21, 41);
-            label8.Name = "label8";
-            label8.Size = new Size(64, 46);
-            label8.TabIndex = 0;
-            label8.Text = "+3";
+            lbTotalCustomerThisMonth.AutoSize = true;
+            lbTotalCustomerThisMonth.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTotalCustomerThisMonth.ForeColor = Color.Lime;
+            lbTotalCustomerThisMonth.Location = new Point(21, 41);
+            lbTotalCustomerThisMonth.Name = "lbTotalCustomerThisMonth";
+            lbTotalCustomerThisMonth.Size = new Size(64, 46);
+            lbTotalCustomerThisMonth.TabIndex = 0;
+            lbTotalCustomerThisMonth.Text = "+3";
             // 
             // label9
             // 
@@ -381,7 +347,7 @@ namespace Hotel_Management.Controls
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(label3);
+            materialCard1.Controls.Add(lbTotalCustomer);
             materialCard1.Controls.Add(lbTotalRoom);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -393,15 +359,15 @@ namespace Hotel_Management.Controls
             materialCard1.Size = new Size(288, 106);
             materialCard1.TabIndex = 10;
             // 
-            // label3
+            // lbTotalCustomer
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(21, 41);
-            label3.Name = "label3";
-            label3.Size = new Size(40, 46);
-            label3.TabIndex = 0;
-            label3.Text = "8";
+            lbTotalCustomer.AutoSize = true;
+            lbTotalCustomer.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTotalCustomer.Location = new Point(21, 41);
+            lbTotalCustomer.Name = "lbTotalCustomer";
+            lbTotalCustomer.Size = new Size(40, 46);
+            lbTotalCustomer.TabIndex = 0;
+            lbTotalCustomer.Text = "8";
             // 
             // lbTotalRoom
             // 
@@ -427,7 +393,7 @@ namespace Hotel_Management.Controls
             // materialCard2
             // 
             materialCard2.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard2.Controls.Add(label4);
+            materialCard2.Controls.Add(lbTotalMale);
             materialCard2.Controls.Add(label5);
             materialCard2.Depth = 0;
             materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -439,16 +405,16 @@ namespace Hotel_Management.Controls
             materialCard2.Size = new Size(288, 106);
             materialCard2.TabIndex = 11;
             // 
-            // label4
+            // lbTotalMale
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Blue;
-            label4.Location = new Point(21, 41);
-            label4.Name = "label4";
-            label4.Size = new Size(40, 46);
-            label4.TabIndex = 0;
-            label4.Text = "2";
+            lbTotalMale.AutoSize = true;
+            lbTotalMale.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTotalMale.ForeColor = Color.Blue;
+            lbTotalMale.Location = new Point(21, 41);
+            lbTotalMale.Name = "lbTotalMale";
+            lbTotalMale.Size = new Size(40, 46);
+            lbTotalMale.TabIndex = 0;
+            lbTotalMale.Text = "2";
             // 
             // label5
             // 
@@ -463,7 +429,7 @@ namespace Hotel_Management.Controls
             // materialCard5
             // 
             materialCard5.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard5.Controls.Add(label6);
+            materialCard5.Controls.Add(lbTotalFemale);
             materialCard5.Controls.Add(label7);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -475,16 +441,16 @@ namespace Hotel_Management.Controls
             materialCard5.Size = new Size(288, 106);
             materialCard5.TabIndex = 12;
             // 
-            // label6
+            // lbTotalFemale
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(21, 41);
-            label6.Name = "label6";
-            label6.Size = new Size(40, 46);
-            label6.TabIndex = 0;
-            label6.Text = "3";
+            lbTotalFemale.AutoSize = true;
+            lbTotalFemale.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTotalFemale.ForeColor = Color.Red;
+            lbTotalFemale.Location = new Point(21, 41);
+            lbTotalFemale.Name = "lbTotalFemale";
+            lbTotalFemale.Size = new Size(40, 46);
+            lbTotalFemale.TabIndex = 0;
+            lbTotalFemale.Text = "3";
             // 
             // label7
             // 
@@ -499,16 +465,16 @@ namespace Hotel_Management.Controls
             // materialCard4
             // 
             materialCard4.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard4.Controls.Add(comboBox2);
-            materialCard4.Controls.Add(kryptonButton1);
-            materialCard4.Controls.Add(materialButton4);
-            materialCard4.Controls.Add(materialButton3);
-            materialCard4.Controls.Add(materialButton1);
+            materialCard4.Controls.Add(cbGender);
+            materialCard4.Controls.Add(btUpdateCustomer);
+            materialCard4.Controls.Add(btClear);
+            materialCard4.Controls.Add(btDeleteCustomer);
+            materialCard4.Controls.Add(btAddCustomer);
             materialCard4.Controls.Add(label16);
             materialCard4.Controls.Add(label15);
-            materialCard4.Controls.Add(kryptonMaskedTextBox3);
-            materialCard4.Controls.Add(kryptonMaskedTextBox2);
-            materialCard4.Controls.Add(kryptonMaskedTextBox1);
+            materialCard4.Controls.Add(txtEmail);
+            materialCard4.Controls.Add(txtPhone);
+            materialCard4.Controls.Add(txtCustomerName);
             materialCard4.Controls.Add(label14);
             materialCard4.Controls.Add(txtRoomId);
             materialCard4.Controls.Add(label10);
@@ -545,50 +511,50 @@ namespace Hotel_Management.Controls
             label15.TabIndex = 0;
             label15.Text = "Phone Number";
             // 
-            // kryptonMaskedTextBox3
+            // txtEmail
             // 
-            kryptonMaskedTextBox3.Cursor = Cursors.IBeam;
-            kryptonMaskedTextBox3.Location = new Point(32, 434);
-            kryptonMaskedTextBox3.Name = "kryptonMaskedTextBox3";
-            kryptonMaskedTextBox3.Size = new Size(326, 38);
-            kryptonMaskedTextBox3.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonMaskedTextBox3.StateActive.Border.Rounding = 8F;
-            kryptonMaskedTextBox3.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox3.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonMaskedTextBox3.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox3.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox3.TabIndex = 4;
-            kryptonMaskedTextBox3.Text = "e.g. example@gmail.com";
+            txtEmail.Cursor = Cursors.IBeam;
+            txtEmail.Location = new Point(32, 434);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(326, 38);
+            txtEmail.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            txtEmail.StateActive.Border.Rounding = 8F;
+            txtEmail.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtEmail.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtEmail.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtEmail.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtEmail.TabIndex = 4;
+            txtEmail.Text = "e.g. example@gmail.com";
             // 
-            // kryptonMaskedTextBox2
+            // txtPhone
             // 
-            kryptonMaskedTextBox2.Cursor = Cursors.IBeam;
-            kryptonMaskedTextBox2.Location = new Point(32, 347);
-            kryptonMaskedTextBox2.Name = "kryptonMaskedTextBox2";
-            kryptonMaskedTextBox2.Size = new Size(326, 38);
-            kryptonMaskedTextBox2.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonMaskedTextBox2.StateActive.Border.Rounding = 8F;
-            kryptonMaskedTextBox2.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox2.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonMaskedTextBox2.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox2.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox2.TabIndex = 4;
-            kryptonMaskedTextBox2.Text = "e.g. 09999XXXX";
+            txtPhone.Cursor = Cursors.IBeam;
+            txtPhone.Location = new Point(32, 347);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(326, 38);
+            txtPhone.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            txtPhone.StateActive.Border.Rounding = 8F;
+            txtPhone.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtPhone.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPhone.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtPhone.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtPhone.TabIndex = 4;
+            txtPhone.Text = "e.g. 09999XXXX";
             // 
-            // kryptonMaskedTextBox1
+            // txtCustomerName
             // 
-            kryptonMaskedTextBox1.Cursor = Cursors.IBeam;
-            kryptonMaskedTextBox1.Location = new Point(29, 178);
-            kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
-            kryptonMaskedTextBox1.Size = new Size(326, 38);
-            kryptonMaskedTextBox1.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            kryptonMaskedTextBox1.StateActive.Border.Rounding = 8F;
-            kryptonMaskedTextBox1.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox1.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonMaskedTextBox1.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox1.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            kryptonMaskedTextBox1.TabIndex = 4;
-            kryptonMaskedTextBox1.Text = "e.g. Moeurn Panha";
+            txtCustomerName.Cursor = Cursors.IBeam;
+            txtCustomerName.Location = new Point(29, 178);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.Size = new Size(326, 38);
+            txtCustomerName.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            txtCustomerName.StateActive.Border.Rounding = 8F;
+            txtCustomerName.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtCustomerName.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCustomerName.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtCustomerName.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtCustomerName.TabIndex = 4;
+            txtCustomerName.Text = "e.g. Moeurn Panha";
             // 
             // label14
             // 
@@ -671,7 +637,6 @@ namespace Hotel_Management.Controls
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(internalSearchableExceptionTreeView1);
             Controls.Add(materialCard6);
-            Controls.Add(kryptonListBox1);
             Controls.Add(materialCard7);
             Controls.Add(materialCard3);
             Controls.Add(materialCard1);
@@ -685,7 +650,7 @@ namespace Hotel_Management.Controls
             Load += CustomerControl_Load;
             materialCard6.ResumeLayout(false);
             materialCard7.ResumeLayout(false);
-            materialCard7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
             materialCard3.ResumeLayout(false);
             materialCard3.PerformLayout();
             materialCard1.ResumeLayout(false);
@@ -701,39 +666,33 @@ namespace Hotel_Management.Controls
         }
 
         #endregion
-        private ComboBox comboBox2;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private MaterialSkin.Controls.MaterialButton materialButton4;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
-        private Label label18;
+        private ComboBox cbGender;
+        private Krypton.Toolkit.KryptonButton btUpdateCustomer;
+        private MaterialSkin.Controls.MaterialButton btClear;
+        private MaterialSkin.Controls.MaterialButton btDeleteCustomer;
         private Krypton.Toolkit.InternalSearchableExceptionTreeView internalSearchableExceptionTreeView1;
         private MaterialSkin.Controls.MaterialCard materialCard6;
-        private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private Krypton.Toolkit.KryptonListBox kryptonListBox1;
+        private Krypton.Toolkit.KryptonRichTextBox txtSearch;
+        private MaterialSkin.Controls.MaterialButton btFilterRest;
         private MaterialSkin.Controls.MaterialCard materialCard7;
-        private Label label21;
-        private Label label20;
-        private Label label19;
-        private Label label17;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton btAddCustomer;
         private MaterialSkin.Controls.MaterialCard materialCard3;
-        private Label label8;
+        private Label lbTotalCustomerThisMonth;
         private Label label9;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private Label label3;
+        private Label lbTotalCustomer;
         private Label lbTotalRoom;
         private Label label2;
         private MaterialSkin.Controls.MaterialCard materialCard2;
-        private Label label4;
+        private Label lbTotalMale;
         private Label label5;
         private MaterialSkin.Controls.MaterialCard materialCard5;
-        private Label label6;
+        private Label lbTotalFemale;
         private Label label7;
         private MaterialSkin.Controls.MaterialCard materialCard4;
         private Label label16;
         private Label label15;
-        private Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox1;
+        private Krypton.Toolkit.KryptonMaskedTextBox txtCustomerName;
         private Label label14;
         private Krypton.Toolkit.KryptonMaskedTextBox txtRoomId;
         private Label label10;
@@ -741,8 +700,9 @@ namespace Hotel_Management.Controls
         private Label label13;
         private Label label11;
         private Label label1;
-        private Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox3;
-        private Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox2;
-        private ComboBox comboBox1;
+        private Krypton.Toolkit.KryptonMaskedTextBox txtEmail;
+        private Krypton.Toolkit.KryptonMaskedTextBox txtPhone;
+        private ComboBox filterByGender;
+        private DataGridView dgvCustomers;
     }
 }

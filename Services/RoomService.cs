@@ -4,28 +4,23 @@ using Hotel_Management.State;
 using Hotel_Management.Models;
 using System.Security;
 
-namespace Hotel_Management.Services
-{
-    public class RoomService
-    {
+namespace Hotel_Management.Services {
+    public class RoomService {
         private readonly RoomRepository _roomRepository;
         private readonly StateModel _state;
         public RoomService(
             RoomRepository roomRepository,
             StateModel state
-            )
-        {
+        ) {
             _roomRepository = roomRepository;
             _state = state;
         }
 
-        public IEnumerable<RoomModel> SearchRooms(string? keyword)
-        {
+        public IEnumerable<RoomModel> SearchRooms( string? keyword ) {
             IEnumerable<RoomModel> rooms = _state.Rooms;
 
-            if (string.IsNullOrWhiteSpace(keyword))
-            {
-                return rooms ;
+            if (string.IsNullOrWhiteSpace(keyword)) {
+                return rooms;
             }
 
             keyword = keyword.Trim();
@@ -39,22 +34,19 @@ namespace Hotel_Management.Services
         }
         public IEnumerable<RoomModel> FilterRooms(
             string? roomType,
-            string? roomStatus)
-        {
+            string? roomStatus ) {
             IEnumerable<RoomModel> rooms = _state.Rooms;
 
             // Filter by room type
             if (!string.IsNullOrWhiteSpace(roomType)
-                && roomType != "All Types")
-            {
+                && roomType != "All Types") {
                 rooms = rooms.Where(r =>
                     r.RoomType.ToString() == roomType);
             }
 
             // Filter by room status
             if (!string.IsNullOrWhiteSpace(roomStatus)
-                && roomStatus != "All Statuses")
-            {
+                && roomStatus != "All Statuses") {
                 rooms = rooms.Where(r =>
                     r.Status.ToString() == roomStatus);
             }
@@ -63,8 +55,7 @@ namespace Hotel_Management.Services
         }
 
 
-        public decimal GetPriceByRoomType(RoomType selectedRoomType) => selectedRoomType switch
-        {
+        public decimal GetPriceByRoomType( RoomType selectedRoomType ) => selectedRoomType switch {
             RoomType.Single => 100m,
             RoomType.Double => 150m,
             RoomType.Twin => 200m,
@@ -73,19 +64,16 @@ namespace Hotel_Management.Services
             RoomType.Vip => 500m,
             _ => 0m // Default fallback
         };
-        public int GetNextRoomId()
-        {
+        public int GetNextRoomId() {
             var rooms = _state.Rooms;
             int nextRoomId = rooms.Any() ? rooms.Max(r => r.RoomId) + 1 : 1;
             //_state.NextRoomId = nextRoomId;
             return nextRoomId;
 
         }
-        public RoomSummary GetRoomSummary()
-        {
+        public RoomSummary GetRoomSummary() {
             var rooms = _state.Rooms;
-            var summary = new RoomSummary
-            {
+            var summary = new RoomSummary {
                 totalRooms = rooms.Count,
                 availableRooms = rooms.Count(r => r.Status.Equals(RoomStatus.Available)),
                 occupiedRooms = rooms.Count(r => r.Status.Equals(RoomStatus.Occupied)),
@@ -95,14 +83,12 @@ namespace Hotel_Management.Services
         }
 
         //Reads the current in-memory collection
-        public IReadOnlyList<RoomModel> GetRooms()
-        {
+        public IReadOnlyList<RoomModel> GetRooms() {
             return _state.Rooms.AsReadOnly();
         }
 
         //Queries the database and populates AppState
-        public void LoadRoom()
-        {
+        public void LoadRoom() {
             //calls GetAllRooms() and stores the results in AppState so other forms can reuse them.
             _state.Rooms = _roomRepository.GetAllRoom();
 
@@ -113,8 +99,7 @@ namespace Hotel_Management.Services
             int roomNumber,
             string roomType,
             decimal pricePerNight,
-            string roomStatus)
-        {
+            string roomStatus ) {
             ValidateRoom(
                 //roomId,
                 roomNumber,
@@ -135,8 +120,7 @@ namespace Hotel_Management.Services
             int roomNumber,
             string roomType,
             decimal pricePerNight,
-            string roomStatus)
-        {
+            string roomStatus ) {
             ValidateRoom(
                 //roomId,
                 roomNumber,
@@ -152,10 +136,8 @@ namespace Hotel_Management.Services
                 roomStatus.Trim());
         }
 
-        public void DeleteRoom(int roomId)
-        {
-            if (roomId <= 0)
-            {
+        public void DeleteRoom( int roomId ) {
+            if (roomId <= 0) {
                 throw new ArgumentException(
                     "Invalid room ID.");
             }
@@ -168,8 +150,7 @@ namespace Hotel_Management.Services
             int roomNumber,
             string roomType,
             decimal pricePerNight,
-            string roomStatus)
-        {
+            string roomStatus ) {
             //if (roomId <= 0)
             //    throw new ArgumentException(
             //        "Room ID must be greater than zero.");
