@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -519,6 +522,9 @@
             txtSearch.StateNormal.Border.Rounding = 8F;
             txtSearch.TabIndex = 1;
             txtSearch.Text = "Search by Room ID or Number...";
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            txtSearch.Enter += txtSearch_Enter;
+            txtSearch.Leave += txtSearch_Leave;
             // 
             // filterType
             // 
@@ -596,12 +602,39 @@
             // 
             dgvRooms.AllowUserToAddRows = false;
             dgvRooms.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Red;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvRooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvRooms.DefaultCellStyle = dataGridViewCellStyle2;
             dgvRooms.Dock = DockStyle.Fill;
+            dgvRooms.EnableHeadersVisualStyles = false;
             dgvRooms.Location = new Point(16, 16);
             dgvRooms.Name = "dgvRooms";
             dgvRooms.ReadOnly = true;
+            dgvRooms.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Lime;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvRooms.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvRooms.RowHeadersWidth = 51;
+            dgvRooms.ScrollBars = ScrollBars.Horizontal;
             dgvRooms.Size = new Size(805, 481);
             dgvRooms.TabIndex = 6;
             dgvRooms.SelectionChanged += dgvRooms_SelectionChanged;

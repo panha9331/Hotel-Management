@@ -48,7 +48,7 @@ namespace Hotel_Management.Repositories
         )
         {
             string query = @"
-                UPDATE dbo.ROOMS 
+                UPDATE dbo.ROO  MS 
                 SET room_number = @number, 
                     room_type = @roomType, 
                     price = @price, 

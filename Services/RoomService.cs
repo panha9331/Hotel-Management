@@ -2,6 +2,7 @@
 using Hotel_Management.Repositories;
 using Hotel_Management.State;
 using Hotel_Management.Models;
+using System.Security;
 
 namespace Hotel_Management.Services
 {
@@ -18,6 +19,24 @@ namespace Hotel_Management.Services
             _state = state;
         }
 
+        public IEnumerable<RoomModel> SearchRooms(string? keyword)
+        {
+            IEnumerable<RoomModel> rooms = _state.Rooms;
+
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                return rooms ;
+            }
+
+            keyword = keyword.Trim();
+
+            return rooms.Where(r => r.RoomNumber.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                                    r.RoomType.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                                    r.RoomNumber.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                                    r.Status.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                                    r.RoomId.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase)
+            );
+        }
         public IEnumerable<RoomModel> FilterRooms(
             string? roomType,
             string? roomStatus)

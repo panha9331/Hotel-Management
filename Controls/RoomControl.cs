@@ -259,5 +259,37 @@ namespace Hotel_Management.RoomManagement
 
             //dgvRooms.Columns["Status"].
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                LoadDgvRooms();
+                return;
+            }
+
+            dgvRooms.DataSource = null;
+
+            dgvRooms.DataSource = _roomService.SearchRooms(txtSearch.Text).ToList();
+            CustomDgvRoom();
+        }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Search by Room ID or Number...")
+            {
+                txtSearch.Clear();
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                txtSearch.Text = "Search by Room ID or Number...";
+                LoadDgvRooms();
+            }
+        }
     }
 }
