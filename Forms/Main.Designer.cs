@@ -26,8 +26,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             Krypton.Toolkit.KryptonLabel kryptonLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
@@ -38,21 +37,22 @@
             lbDate = new Label();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
-            kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
+            globalSearch = new Krypton.Toolkit.KryptonRichTextBox();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             label5 = new Label();
             label1 = new Label();
             panel1 = new Panel();
+            lblBigAccountName = new Label();
             btReservation = new MaterialSkin.Controls.MaterialButton();
             btCustomer = new MaterialSkin.Controls.MaterialButton();
             btRoom = new MaterialSkin.Controls.MaterialButton();
             btDashboard = new MaterialSkin.Controls.MaterialButton();
             panel4 = new Panel();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            label4 = new Label();
-            label3 = new Label();
+            btLogout = new PictureBox();
+            pAccount = new PictureBox();
+            lbRole = new Label();
+            lbAccountName = new Label();
             pnlContent = new Panel();
             timer = new System.Windows.Forms.Timer(components);
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
@@ -65,17 +65,18 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btLogout).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pAccount).BeginInit();
             SuspendLayout();
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.GroupBoxCaption;
+            kryptonLabel1.Cursor = Cursors.Hand;
+            kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             kryptonLabel1.Location = new Point(340, 26);
             kryptonLabel1.Margin = new Padding(4);
             kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(103, 26);
+            kryptonLabel1.Size = new Size(98, 24);
             kryptonLabel1.TabIndex = 3;
             kryptonLabel1.Values.Text = "StayEasy   >  ";
             // 
@@ -98,9 +99,11 @@
             // 
             lblPageTitle.AutoSize = true;
             lblPageTitle.BackColor = Color.Transparent;
-            lblPageTitle.Location = new Point(450, 24);
+            lblPageTitle.Cursor = Cursors.Hand;
+            lblPageTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageTitle.Location = new Point(445, 20);
             lblPageTitle.Name = "lblPageTitle";
-            lblPageTitle.Size = new Size(185, 28);
+            lblPageTitle.Size = new Size(225, 31);
             lblPageTitle.TabIndex = 7;
             lblPageTitle.Text = "Room Management";
             // 
@@ -112,7 +115,7 @@
             panel5.Controls.Add(lbDate);
             panel5.Controls.Add(pictureBox3);
             panel5.Controls.Add(pictureBox2);
-            panel5.Controls.Add(kryptonRichTextBox1);
+            panel5.Controls.Add(globalSearch);
             panel5.Location = new Point(967, 0);
             panel5.Name = "panel5";
             panel5.Size = new Size(615, 81);
@@ -144,11 +147,11 @@
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Cursor = Cursors.Hand;
-            pictureBox3.Image = Properties.Resources.notification;
+            pictureBox3.Image = Properties.Resources.notifications_36dp_FFFF55_FILL0_wght400_GRAD0_opsz40;
             pictureBox3.InitialImage = Properties.Resources.search;
-            pictureBox3.Location = new Point(397, 28);
+            pictureBox3.Location = new Point(397, 21);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(24, 24);
+            pictureBox3.Size = new Size(34, 41);
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;
             // 
@@ -156,27 +159,30 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Cursor = Cursors.Hand;
-            pictureBox2.Image = Properties.Resources.search;
+            pictureBox2.Image = Properties.Resources.search_36dp_75FB4C_FILL0_wght400_GRAD0_opsz40;
             pictureBox2.InitialImage = Properties.Resources.search;
-            pictureBox2.Location = new Point(350, 28);
+            pictureBox2.Location = new Point(350, 21);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(24, 24);
+            pictureBox2.Size = new Size(41, 41);
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
             // 
-            // kryptonRichTextBox1
+            // globalSearch
             // 
-            kryptonRichTextBox1.AlwaysActive = false;
-            kryptonRichTextBox1.Cursor = Cursors.IBeam;
-            kryptonRichTextBox1.Location = new Point(20, 21);
-            kryptonRichTextBox1.Name = "kryptonRichTextBox1";
-            kryptonRichTextBox1.Size = new Size(324, 36);
-            kryptonRichTextBox1.StateActive.Border.Color1 = Color.FromArgb(128, 255, 128);
-            kryptonRichTextBox1.StateActive.Border.Rounding = 8F;
-            kryptonRichTextBox1.StateNormal.Border.Color1 = Color.Red;
-            kryptonRichTextBox1.StateNormal.Border.Rounding = 8F;
-            kryptonRichTextBox1.TabIndex = 0;
-            kryptonRichTextBox1.Text = "Global Search (Ctrl + /)...";
+            globalSearch.AlwaysActive = false;
+            globalSearch.Cursor = Cursors.IBeam;
+            globalSearch.Location = new Point(20, 21);
+            globalSearch.Name = "globalSearch";
+            globalSearch.Size = new Size(324, 36);
+            globalSearch.StateActive.Border.Color1 = Color.FromArgb(128, 255, 128);
+            globalSearch.StateActive.Border.Rounding = 8F;
+            globalSearch.StateNormal.Border.Color1 = Color.Red;
+            globalSearch.StateNormal.Border.Rounding = 8F;
+            globalSearch.TabIndex = 0;
+            globalSearch.Text = "Global Search (Ctrl + /)...";
+            globalSearch.TextChanged += globalSearch_TextChanged;
+            globalSearch.Enter += globalSearch_Enter;
+            globalSearch.Leave += globalSearch_Leave;
             // 
             // panel2
             // 
@@ -225,6 +231,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Navy;
+            panel1.Controls.Add(lblBigAccountName);
             panel1.Controls.Add(btReservation);
             panel1.Controls.Add(btCustomer);
             panel1.Controls.Add(btRoom);
@@ -237,6 +244,14 @@
             panel1.Size = new Size(260, 900);
             panel1.TabIndex = 1;
             // 
+            // lblBigAccountName
+            // 
+            lblBigAccountName.AutoSize = true;
+            lblBigAccountName.Location = new Point(74, 602);
+            lblBigAccountName.Name = "lblBigAccountName";
+            lblBigAccountName.Size = new Size(0, 28);
+            lblBigAccountName.TabIndex = 3;
+            // 
             // btReservation
             // 
             btReservation.AutoSize = false;
@@ -247,7 +262,7 @@
             btReservation.FlatStyle = FlatStyle.Popup;
             btReservation.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btReservation.HighEmphasis = true;
-            btReservation.Icon = Properties.Resources.dashboard;
+            btReservation.Icon = Properties.Resources.hotel_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
             btReservation.Location = new Point(13, 229);
             btReservation.Margin = new Padding(4, 6, 4, 6);
             btReservation.MouseState = MaterialSkin.MouseState.HOVER;
@@ -272,7 +287,7 @@
             btCustomer.FlatStyle = FlatStyle.Popup;
             btCustomer.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btCustomer.HighEmphasis = true;
-            btCustomer.Icon = Properties.Resources.dashboard;
+            btCustomer.Icon = Properties.Resources.identity_platform_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
             btCustomer.Location = new Point(13, 172);
             btCustomer.Margin = new Padding(4, 6, 4, 6);
             btCustomer.MouseState = MaterialSkin.MouseState.HOVER;
@@ -296,7 +311,7 @@
             btRoom.FlatStyle = FlatStyle.Popup;
             btRoom.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btRoom.HighEmphasis = true;
-            btRoom.Icon = Properties.Resources.dashboard;
+            btRoom.Icon = Properties.Resources.room_service_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
             btRoom.Location = new Point(13, 115);
             btRoom.Margin = new Padding(4, 6, 4, 6);
             btRoom.MouseState = MaterialSkin.MouseState.HOVER;
@@ -338,59 +353,62 @@
             // 
             panel4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel4.BackColor = Color.MidnightBlue;
-            panel4.Controls.Add(pictureBox5);
-            panel4.Controls.Add(pictureBox4);
-            panel4.Controls.Add(label4);
-            panel4.Controls.Add(label3);
+            panel4.Controls.Add(btLogout);
+            panel4.Controls.Add(pAccount);
+            panel4.Controls.Add(lbRole);
+            panel4.Controls.Add(lbAccountName);
             panel4.Location = new Point(4, 818);
             panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
             panel4.Size = new Size(260, 78);
             panel4.TabIndex = 2;
             // 
-            // pictureBox5
+            // btLogout
             // 
-            pictureBox5.Cursor = Cursors.Hand;
-            pictureBox5.Image = Properties.Resources.logout;
-            pictureBox5.Location = new Point(198, 16);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(52, 41);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 1;
-            pictureBox5.TabStop = false;
+            btLogout.Cursor = Cursors.Hand;
+            btLogout.Image = Properties.Resources.logout;
+            btLogout.Location = new Point(198, 16);
+            btLogout.Name = "btLogout";
+            btLogout.Size = new Size(52, 41);
+            btLogout.SizeMode = PictureBoxSizeMode.Zoom;
+            btLogout.TabIndex = 1;
+            btLogout.TabStop = false;
+            btLogout.Click += btLogout_Click;
             // 
-            // pictureBox4
+            // pAccount
             // 
-            pictureBox4.Cursor = Cursors.Hand;
-            pictureBox4.Image = Properties.Resources.profile;
-            pictureBox4.Location = new Point(12, 16);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(52, 41);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 1;
-            pictureBox4.TabStop = false;
+            pAccount.Cursor = Cursors.Hand;
+            pAccount.Image = Properties.Resources.profile;
+            pAccount.Location = new Point(12, 16);
+            pAccount.Name = "pAccount";
+            pAccount.Size = new Size(52, 41);
+            pAccount.SizeMode = PictureBoxSizeMode.Zoom;
+            pAccount.TabIndex = 1;
+            pAccount.TabStop = false;
             // 
-            // label4
+            // lbRole
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(70, 39);
-            label4.Name = "label4";
-            label4.Size = new Size(60, 23);
-            label4.TabIndex = 0;
-            label4.Text = "Admin";
+            lbRole.AutoSize = true;
+            lbRole.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbRole.ForeColor = Color.White;
+            lbRole.Location = new Point(70, 39);
+            lbRole.Name = "lbRole";
+            lbRole.Size = new Size(60, 23);
+            lbRole.TabIndex = 0;
+            lbRole.Text = "Admin";
             // 
-            // label3
+            // lbAccountName
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(70, 11);
-            label3.Name = "label3";
-            label3.Size = new Size(106, 28);
-            label3.TabIndex = 0;
-            label3.Text = "Mr. Panha";
+            lbAccountName.AutoSize = true;
+            lbAccountName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbAccountName.ForeColor = Color.White;
+            lbAccountName.Location = new Point(70, 11);
+            lbAccountName.Name = "lbAccountName";
+            lbAccountName.Size = new Size(106, 28);
+            lbAccountName.TabIndex = 0;
+            lbAccountName.Text = "Mr. Panha";
+            lbAccountName.MouseLeave += lbAccountName_MouseLeave;
+            lbAccountName.MouseHover += lbAccountName_MouseHover;
             // 
             // pnlContent
             // 
@@ -434,10 +452,11 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btLogout).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pAccount).EndInit();
             ResumeLayout(false);
         }
 
@@ -454,19 +473,20 @@
         private MaterialSkin.Controls.MaterialButton btCustomer;
         private MaterialSkin.Controls.MaterialButton btRoom;
         private Panel pnlContent;
-        private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
+        private Krypton.Toolkit.KryptonRichTextBox globalSearch;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Label lbTime;
         private Label lbDate;
         private Panel panel4;
-        private PictureBox pictureBox4;
-        private Label label4;
-        private Label label3;
+        private PictureBox pAccount;
+        private Label lbRole;
+        private Label lbAccountName;
         private Label label5;
         private Panel panel5;
         private Label lblPageTitle;
-        private PictureBox pictureBox5;
+        private PictureBox btLogout;
         private System.Windows.Forms.Timer timer;
+        private Label lblBigAccountName;
     }
 }

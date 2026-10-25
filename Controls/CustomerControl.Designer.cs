@@ -37,7 +37,6 @@ namespace Hotel_Management.Controls
             btUpdateCustomer = new Krypton.Toolkit.KryptonButton();
             btClear = new MaterialSkin.Controls.MaterialButton();
             btDeleteCustomer = new MaterialSkin.Controls.MaterialButton();
-            internalSearchableExceptionTreeView1 = new Krypton.Toolkit.InternalSearchableExceptionTreeView();
             materialCard6 = new MaterialSkin.Controls.MaterialCard();
             filterByGender = new ComboBox();
             txtSearch = new Krypton.Toolkit.KryptonRichTextBox();
@@ -65,7 +64,7 @@ namespace Hotel_Management.Controls
             txtPhone = new Krypton.Toolkit.KryptonMaskedTextBox();
             txtCustomerName = new Krypton.Toolkit.KryptonMaskedTextBox();
             label14 = new Label();
-            txtRoomId = new Krypton.Toolkit.KryptonMaskedTextBox();
+            txtCustomerId = new Krypton.Toolkit.KryptonMaskedTextBox();
             label10 = new Label();
             label12 = new Label();
             label13 = new Label();
@@ -154,15 +153,6 @@ namespace Hotel_Management.Controls
             btDeleteCustomer.UseVisualStyleBackColor = true;
             btDeleteCustomer.Click += btDeleteCustomer_Click;
             // 
-            // internalSearchableExceptionTreeView1
-            // 
-            internalSearchableExceptionTreeView1.BackColor = Color.Transparent;
-            internalSearchableExceptionTreeView1.Location = new Point(1026, 497);
-            internalSearchableExceptionTreeView1.Margin = new Padding(4, 5, 4, 5);
-            internalSearchableExceptionTreeView1.Name = "internalSearchableExceptionTreeView1";
-            internalSearchableExceptionTreeView1.Size = new Size(8, 8);
-            internalSearchableExceptionTreeView1.TabIndex = 14;
-            // 
             // materialCard6
             // 
             materialCard6.BackColor = Color.FromArgb(255, 255, 255);
@@ -187,13 +177,14 @@ namespace Hotel_Management.Controls
             filterByGender.FlatStyle = FlatStyle.System;
             filterByGender.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             filterByGender.FormattingEnabled = true;
-            filterByGender.Items.AddRange(new object[] { "Female (F)", "Male (M)", "Other (N)" });
+            filterByGender.Items.AddRange(new object[] { "All Gender", "Female", "Male", "Other" });
             filterByGender.Location = new Point(586, 23);
             filterByGender.Name = "filterByGender";
             filterByGender.Size = new Size(119, 36);
             filterByGender.Sorted = true;
             filterByGender.TabIndex = 4;
             filterByGender.Text = "All Gender";
+            filterByGender.SelectedIndexChanged += filterByGender_SelectedIndexChanged;
             // 
             // txtSearch
             // 
@@ -208,6 +199,9 @@ namespace Hotel_Management.Controls
             txtSearch.StateNormal.Border.Rounding = 8F;
             txtSearch.TabIndex = 1;
             txtSearch.Text = "Search by ID, Full Name, Phone...";
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            txtSearch.Enter += txtSearch_Enter;
+            txtSearch.Leave += txtSearch_Leave;
             // 
             // btFilterRest
             // 
@@ -476,7 +470,7 @@ namespace Hotel_Management.Controls
             materialCard4.Controls.Add(txtPhone);
             materialCard4.Controls.Add(txtCustomerName);
             materialCard4.Controls.Add(label14);
-            materialCard4.Controls.Add(txtRoomId);
+            materialCard4.Controls.Add(txtCustomerId);
             materialCard4.Controls.Add(label10);
             materialCard4.Controls.Add(label12);
             materialCard4.Controls.Add(label13);
@@ -525,6 +519,8 @@ namespace Hotel_Management.Controls
             txtEmail.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             txtEmail.TabIndex = 4;
             txtEmail.Text = "e.g. example@gmail.com";
+            txtEmail.Enter += txtEmail_Enter;
+            txtEmail.Leave += txtEmail_Leave;
             // 
             // txtPhone
             // 
@@ -540,6 +536,8 @@ namespace Hotel_Management.Controls
             txtPhone.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             txtPhone.TabIndex = 4;
             txtPhone.Text = "e.g. 09999XXXX";
+            txtPhone.Enter += txtPhone_Enter;
+            txtPhone.Leave += txtPhone_Leave;
             // 
             // txtCustomerName
             // 
@@ -555,6 +553,8 @@ namespace Hotel_Management.Controls
             txtCustomerName.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             txtCustomerName.TabIndex = 4;
             txtCustomerName.Text = "e.g. Moeurn Panha";
+            txtCustomerName.Enter += txtCustomerName_Enter;
+            txtCustomerName.Leave += txtCustomerName_Leave;
             // 
             // label14
             // 
@@ -566,20 +566,20 @@ namespace Hotel_Management.Controls
             label14.TabIndex = 0;
             label14.Text = "Gender";
             // 
-            // txtRoomId
+            // txtCustomerId
             // 
-            txtRoomId.Cursor = Cursors.IBeam;
-            txtRoomId.Location = new Point(27, 95);
-            txtRoomId.Name = "txtRoomId";
-            txtRoomId.Size = new Size(328, 38);
-            txtRoomId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            txtRoomId.StateActive.Border.Rounding = 8F;
-            txtRoomId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRoomId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.TabIndex = 4;
-            txtRoomId.Text = "C001";
+            txtCustomerId.Cursor = Cursors.IBeam;
+            txtCustomerId.Location = new Point(27, 95);
+            txtCustomerId.Name = "txtCustomerId";
+            txtCustomerId.Size = new Size(328, 38);
+            txtCustomerId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            txtCustomerId.StateActive.Border.Rounding = 8F;
+            txtCustomerId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtCustomerId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCustomerId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtCustomerId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtCustomerId.TabIndex = 4;
+            txtCustomerId.Text = "101";
             // 
             // label10
             // 
@@ -635,7 +635,6 @@ namespace Hotel_Management.Controls
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(internalSearchableExceptionTreeView1);
             Controls.Add(materialCard6);
             Controls.Add(materialCard7);
             Controls.Add(materialCard3);
@@ -670,7 +669,6 @@ namespace Hotel_Management.Controls
         private Krypton.Toolkit.KryptonButton btUpdateCustomer;
         private MaterialSkin.Controls.MaterialButton btClear;
         private MaterialSkin.Controls.MaterialButton btDeleteCustomer;
-        private Krypton.Toolkit.InternalSearchableExceptionTreeView internalSearchableExceptionTreeView1;
         private MaterialSkin.Controls.MaterialCard materialCard6;
         private Krypton.Toolkit.KryptonRichTextBox txtSearch;
         private MaterialSkin.Controls.MaterialButton btFilterRest;
@@ -694,7 +692,7 @@ namespace Hotel_Management.Controls
         private Label label15;
         private Krypton.Toolkit.KryptonMaskedTextBox txtCustomerName;
         private Label label14;
-        private Krypton.Toolkit.KryptonMaskedTextBox txtRoomId;
+        private Krypton.Toolkit.KryptonMaskedTextBox txtCustomerId;
         private Label label10;
         private Label label12;
         private Label label13;

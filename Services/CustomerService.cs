@@ -1,11 +1,12 @@
 ﻿using Hotel_Management.Models;
 using Hotel_Management.Repositories;
 using Hotel_Management.State;
-using System.Text.RegularExpressions;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.RegularExpressions;
+using static System.Windows.Forms.AxHost;
 
 
 namespace Hotel_Management.Services {
@@ -13,7 +14,36 @@ namespace Hotel_Management.Services {
     public class CustomerService {
         private readonly CustomerRepository _customerRepository;
         private readonly StateModel _stateModel;
+        public IEnumerable<CustomerModel> SearchCustomers(string? keyword) {
+            IEnumerable<CustomerModel> customers = _stateModel.Customers;
+            if (string.IsNullOrWhiteSpace(keyword)) {
+                return customers;
+            }
 
+            keyword = keyword.Trim();
+
+            return customers.Where(
+                c => c.CustomerID.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                 c.CustomerName.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                 c.Gender.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                 c.Email.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                 c.Phone.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase)
+
+                );
+
+
+
+        }
+        public IEnumerable<CustomerModel> FilterCustomer(string? gender) {
+
+            IEnumerable<CustomerModel> customers = _stateModel.Customers;
+
+            if (!string.IsNullOrWhiteSpace(gender) && gender != "All Gender") {
+                customers = customers.Where(c => c.Gender == gender);
+            }
+
+            return customers.ToList();
+        }
         public CustomerSummary GetCustomerSummary() {
             var customers = _stateModel.Customers;
 
@@ -66,7 +96,7 @@ namespace Hotel_Management.Services {
             );
         }
 
-        public void DeleteCustomer( int customerId ) {
+        public void DeleteCustomer(int customerId) {
             _customerRepository.DeleteCustomer(customerId);
         }
 
