@@ -70,6 +70,9 @@ namespace Hotel_Management.Controls
             label13 = new Label();
             label11 = new Label();
             label1 = new Label();
+            label19 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             materialCard6.SuspendLayout();
             materialCard7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
@@ -459,6 +462,9 @@ namespace Hotel_Management.Controls
             // materialCard4
             // 
             materialCard4.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard4.Controls.Add(label4);
+            materialCard4.Controls.Add(label3);
+            materialCard4.Controls.Add(label19);
             materialCard4.Controls.Add(cbGender);
             materialCard4.Controls.Add(btUpdateCustomer);
             materialCard4.Controls.Add(btClear);
@@ -571,10 +577,12 @@ namespace Hotel_Management.Controls
             txtCustomerId.Cursor = Cursors.IBeam;
             txtCustomerId.Location = new Point(27, 95);
             txtCustomerId.Name = "txtCustomerId";
+            txtCustomerId.ReadOnly = true;
             txtCustomerId.Size = new Size(328, 38);
             txtCustomerId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
             txtCustomerId.StateActive.Border.Rounding = 8F;
             txtCustomerId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtCustomerId.StateCommon.Back.Color1 = Color.FromArgb(224, 224, 224);
             txtCustomerId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCustomerId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             txtCustomerId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
@@ -630,6 +638,39 @@ namespace Hotel_Management.Controls
             label1.Size = new Size(265, 31);
             label1.TabIndex = 6;
             label1.Text = "Customer Management";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.Red;
+            label19.Location = new Point(338, 67);
+            label19.Name = "label19";
+            label19.Size = new Size(20, 25);
+            label19.TabIndex = 14;
+            label19.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(338, 150);
+            label3.Name = "label3";
+            label3.Size = new Size(20, 25);
+            label3.TabIndex = 14;
+            label3.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(338, 319);
+            label4.Name = "label4";
+            label4.Size = new Size(20, 25);
+            label4.TabIndex = 14;
+            label4.Text = "*";
             // 
             // CustomerControl
             // 
@@ -702,5 +743,8 @@ namespace Hotel_Management.Controls
         private Krypton.Toolkit.KryptonMaskedTextBox txtPhone;
         private ComboBox filterByGender;
         private DataGridView dgvCustomers;
+        private Label label4;
+        private Label label3;
+        private Label label19;
     }
 }

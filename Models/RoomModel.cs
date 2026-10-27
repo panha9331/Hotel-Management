@@ -37,6 +37,7 @@ namespace Hotel_Management.Models
         public Decimal Price { get; set; } = new Decimal(0);
         public RoomStatus Status { get; set; } = RoomStatus.Available;
 
-        
+        public string RoomDisplay =>
+            $"Room {RoomNumber} - {RoomType} (${Price:0.##}/night)";
     }
 }

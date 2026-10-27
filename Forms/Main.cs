@@ -16,8 +16,16 @@ namespace Hotel_Management {
         private readonly ReservationRepository _reservationRepository;
 
         private readonly StateModel _stateModel;
+
+        private Label lbAccountHover;
+
+        private PictureBox picAccountHover;
+
         public Main() {
+
             InitializeComponent();
+
+
 
             lbDate.Text = DateTime.Now.ToString("MMM, dd yyyy");
 
@@ -29,11 +37,25 @@ namespace Hotel_Management {
             _customerRepository = new CustomerRepository();
             _customerService = new CustomerService(_customerRepository, _stateModel);
 
+            _reservationRepository = new ReservationRepository();
+            _reservationService = new ReservationService(_reservationRepository, _stateModel);
+
 
             LoadControl(new RoomControl(_roomService, _roomRepository));
             lblPageTitle.Text = "Room Management";
 
-            //DatabaseInitializer.TestConnection();
+            //ConfigureMenuButton(btDashboard);
+            //ConfigureMenuButton(btRoom);
+            //ConfigureMenuButton(btCustomer);
+            //ConfigureMenuButton(btReservation);
+            ////DatabaseInitializer.TestConnection();
+        }
+
+        private void ConfigureMenuButton(MaterialSkin.Controls.MaterialButton btn) {
+            btn.TextAlign = ContentAlignment.MiddleLeft;
+            btn.ImageAlign = ContentAlignment.MiddleLeft;
+            btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn.Padding = new Padding(10, 0, 0, 0);
         }
 
         private void LoadControl(UserControl control) {
@@ -69,7 +91,7 @@ namespace Hotel_Management {
         }
 
         private void btReservation_Click(object sender, EventArgs e) {
-            LoadControl(new ReservationControl());
+            LoadControl(new ReservationControl(_reservationService, _reservationRepository));
             lblPageTitle.Text = "Reservation Management";
         }
 
@@ -106,34 +128,66 @@ namespace Hotel_Management {
         }
 
         private void lbAccountName_MouseHover(object sender, EventArgs e) {
-            if (lblBigAccountName == null) {
-                lblBigAccountName = new Label();
+            if (lbAccountHover == null) {
+                lbAccountHover = new Label();
 
-                lblBigAccountName.AutoSize = true;
-                lblBigAccountName.Font = new Font("Arial", 16, FontStyle.Bold);
-                lblBigAccountName.BackColor = Color.White;
-                lblBigAccountName.ForeColor = Color.Black;
-                lblBigAccountName.BorderStyle = BorderStyle.FixedSingle;
+                lbAccountHover.AutoSize = true;
+                lbAccountHover.Font = new Font("Arial", 26, FontStyle.Bold);
+                lbAccountHover.BackColor = Color.Navy;
+                lbAccountHover.ForeColor = Color.White;
+                lbAccountHover.BorderStyle = BorderStyle.None;
 
-                this.Controls.Add(lblBigAccountName);
-                lblBigAccountName.BringToFront();
+                this.Controls.Add(lbAccountHover);
+                lbAccountHover.BringToFront();
             }
 
-            lblBigAccountName.Text = lbAccountName.Text;
+            lbAccountHover.Text = lbAccountName.Text;
 
             // Position the popup above the account name
-            lblBigAccountName.Location = new Point(
-                lbAccountName.Left,
-                lbAccountName.Top - lblBigAccountName.PreferredHeight - 5
+            lbAccountHover.Location = new Point(
+                lbAccountName.Left - 55,
+                lbAccountName.Top + 500
             );
 
-            lblBigAccountName.Visible = true;
-            lblBigAccountName.BringToFront();
+            lbAccountHover.Visible = true;
+            lbAccountHover.BringToFront();
         }
 
         private void lbAccountName_MouseLeave(object sender, EventArgs e) {
-            if (lblBigAccountName != null) {
-                lblBigAccountName.Visible = false;
+            if (lbAccountHover != null) {
+                lbAccountHover.Visible = false;
+            }
+        }
+
+        private void picAccount_MouseHover(object sender, EventArgs e) {
+            if (picAccountHover == null) {
+                picAccountHover = new PictureBox();
+
+                picAccountHover.Size = new Size(200, 200);
+                picAccountHover.SizeMode = PictureBoxSizeMode.Zoom;
+                picAccountHover.BackColor = Color.Navy;
+                picAccountHover.BorderStyle = BorderStyle.None;
+
+                this.Controls.Add(picAccountHover);
+                picAccountHover.BringToFront();
+            }
+
+            // Display the same account image in a larger size
+            picAccountHover.Image = picAccount.Image;
+
+            // Position it above the account picture
+            picAccountHover.Location = new Point(
+                lbAccountName.Left - 40,
+                picAccount.Top + 520
+            );
+
+            picAccountHover.Visible = true;
+            picAccountHover.BringToFront();
+        }
+
+        private void picAccount_MouseLeave(object sender, EventArgs e) {
+            if (picAccountHover != null) {
+                picAccountHover.Visible = false;
             }
         }
     }

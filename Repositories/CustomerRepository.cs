@@ -26,10 +26,10 @@ namespace Hotel_Management.Repositories
                 while (reader.Read()) {
                     customers.Add(new CustomerModel {
                         CustomerID = Convert.ToInt32(reader["customer_id"]),
-                        CustomerName = reader["name"].ToString(),
-                        Gender = reader["gender"].ToString(),
-                        Phone = reader["phone"].ToString(),
-                        Email = reader["email"].ToString()
+                        CustomerName = reader["name"].ToString()!,
+                        Gender = reader["gender"].ToString()!,
+                        Phone = reader["phone"].ToString()!,
+                        Email = reader["email"].ToString()!
 
                     });
                 }

@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -46,6 +45,9 @@
             lbReservedRooms = new Label();
             label9 = new Label();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
+            label4 = new Label();
+            label3 = new Label();
+            label19 = new Label();
             btRoomUpdate = new Krypton.Toolkit.KryptonButton();
             pricePerNight = new NumericUpDown();
             roomType = new ComboBox();
@@ -248,6 +250,9 @@
             // materialCard4
             // 
             materialCard4.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard4.Controls.Add(label4);
+            materialCard4.Controls.Add(label3);
+            materialCard4.Controls.Add(label19);
             materialCard4.Controls.Add(btRoomUpdate);
             materialCard4.Controls.Add(pricePerNight);
             materialCard4.Controls.Add(roomType);
@@ -273,6 +278,39 @@
             materialCard4.Padding = new Padding(16);
             materialCard4.Size = new Size(390, 608);
             materialCard4.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(338, 233);
+            label4.Name = "label4";
+            label4.Size = new Size(20, 25);
+            label4.TabIndex = 7;
+            label4.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(338, 150);
+            label3.Name = "label3";
+            label3.Size = new Size(20, 25);
+            label3.TabIndex = 7;
+            label3.Text = "*";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.Red;
+            label19.Location = new Point(338, 67);
+            label19.Name = "label19";
+            label19.Size = new Size(20, 25);
+            label19.TabIndex = 7;
+            label19.Text = "*";
             // 
             // btRoomUpdate
             // 
@@ -447,6 +485,7 @@
             roomId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
             roomId.StateActive.Border.Rounding = 8F;
             roomId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            roomId.StateCommon.Back.Color1 = Color.FromArgb(224, 224, 224);
             roomId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             roomId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             roomId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
@@ -516,9 +555,9 @@
             txtSearch.Location = new Point(23, 22);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(364, 36);
-            txtSearch.StateActive.Border.Color1 = Color.Red;
+            txtSearch.StateActive.Border.Color1 = Color.Fuchsia;
             txtSearch.StateActive.Border.Rounding = 8F;
-            txtSearch.StateNormal.Border.Color1 = Color.FromArgb(128, 255, 128);
+            txtSearch.StateNormal.Border.Color1 = Color.Blue;
             txtSearch.StateNormal.Border.Rounding = 8F;
             txtSearch.TabIndex = 1;
             txtSearch.Text = "Search by Room ID or Number...";
@@ -529,6 +568,7 @@
             // filterType
             // 
             filterType.AllowDrop = true;
+            filterType.BackColor = SystemColors.Window;
             filterType.Cursor = Cursors.Hand;
             filterType.DisplayMember = "Anvailable";
             filterType.FlatStyle = FlatStyle.System;
@@ -602,6 +642,7 @@
             // 
             dgvRooms.AllowUserToAddRows = false;
             dgvRooms.AllowUserToOrderColumns = true;
+            dgvRooms.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -641,7 +682,9 @@
             // 
             // RoomControl
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(materialCard7);
             Controls.Add(materialCard6);
             Controls.Add(materialCard3);
@@ -653,7 +696,7 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "RoomControl";
-            Size = new Size(1307, 900);
+            Size = new Size(1309, 880);
             Load += RoomControl_Load;
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
@@ -716,5 +759,8 @@
         private MaterialSkin.Controls.MaterialCard materialCard7;
         private Krypton.Toolkit.KryptonButton btRoomUpdate;
         private DataGridView dgvRooms;
+        private Label label4;
+        private Label label3;
+        private Label label19;
     }
 }
