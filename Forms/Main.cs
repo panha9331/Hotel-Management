@@ -2,6 +2,7 @@ using Hotel_Management.Controls;
 using Hotel_Management.State;
 using Hotel_Management.Services;
 using Hotel_Management.Repositories;
+using Hotel_Management.Helpers;
 using Hotel_Management.ReservationManagement;
 using Hotel_Management.RoomManagement;
 
@@ -41,8 +42,8 @@ namespace Hotel_Management {
             _reservationService = new ReservationService(_reservationRepository, _stateModel);
 
 
-            LoadControl(new RoomControl(_roomService, _roomRepository));
-            lblPageTitle.Text = "Room Management";
+            //LoadControl(new RoomControl(_roomService, _roomRepository));
+            //lblPageTitle.Text = "Room Management";
 
             //ConfigureMenuButton(btDashboard);
             //ConfigureMenuButton(btRoom);
@@ -91,7 +92,7 @@ namespace Hotel_Management {
         }
 
         private void btReservation_Click(object sender, EventArgs e) {
-            LoadControl(new ReservationControl(_reservationService, _reservationRepository));
+            LoadControl(new ReservationControl(_reservationService, _reservationRepository, _roomService, _customerService));
             lblPageTitle.Text = "Reservation Management";
         }
 
@@ -124,7 +125,11 @@ namespace Hotel_Management {
         }
 
         private void btLogout_Click(object sender, EventArgs e) {
-            MessageBox.Show("This feature is not avalaible now!");
+            AppMessageBox.Show(
+                this,
+                "Not Available",
+                "This feature is not available now.",
+                MessageType.Information);
         }
 
         private void lbAccountName_MouseHover(object sender, EventArgs e) {

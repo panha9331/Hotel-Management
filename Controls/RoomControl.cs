@@ -1,4 +1,5 @@
 ﻿using Hotel_Management.Models;
+using Hotel_Management.Helpers;
 using Hotel_Management.Repositories;
 using Hotel_Management.Services;
 //using Microsoft.UI.Xaml.Controls;
@@ -55,19 +56,35 @@ namespace Hotel_Management.RoomManagement {
                 UpdateRoomSummary();
 
                 LoadDgvRooms();
-                MessageBox.Show("Room added successfully.");
+                AppMessageBox.Show(
+                    this,
+                    "Room Added",
+                    "Room added successfully.",
+                    MessageType.Success);
             } catch (ArgumentException ex) {
-                MessageBox.Show(
-                    ex.Message,
+                AppMessageBox.Show(
+                    this,
                     "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                    ex.Message,
+                    MessageType.Warning);
             } catch (FormatException) {
-                MessageBox.Show(
-                    "Please enter valid numeric values.");
+                AppMessageBox.Show(
+                    this,
+                    "Validation Error",
+                    "Please enter valid numeric values.",
+                    MessageType.Warning);
             } catch (System.Data.SqlClient.SqlException) {
-                MessageBox.Show(
-                    "Database operation failed. Check the database and room data.");
+                AppMessageBox.Show(
+                    this,
+                    "Database Error",
+                    "Database operation failed. Check the database and room data.",
+                    MessageType.Error);
+            } catch (Exception ex) {
+                AppMessageBox.Show(
+                    this,
+                    "Room Error",
+                    ex.Message,
+                    MessageType.Error);
             }
         }
         private void GetPriceByRoomType() {
@@ -122,18 +139,50 @@ namespace Hotel_Management.RoomManagement {
 
         private void btRoomDelete_Click(object sender, EventArgs e) {
             var selectedRoom = dgvRooms.CurrentRow?.DataBoundItem as RoomModel;
+            if (selectedRoom == null) {
+                AppMessageBox.Show(
+                    this,
+                    "Select a Room",
+                    "Please select a room to delete.",
+                    MessageType.Warning);
+                return;
+            }
+
             try {
                 _roomService.DeleteRoom(selectedRoom.RoomId);
                 _roomService.LoadRoom();
                 LoadDgvRooms();
                 UpdateRoomSummary();
+                AppMessageBox.Show(
+                    this,
+                    "Room Deleted",
+                    "Room deleted successfully.",
+                    MessageType.Success);
+            } catch (ArgumentException ex) {
+                AppMessageBox.Show(
+                    this,
+                    "Validation Error",
+                    ex.Message,
+                    MessageType.Warning);
             } catch (Exception ex) {
-                MessageBox.Show("Error occurred while deleting room: " + ex.Message);
+                AppMessageBox.Show(
+                    this,
+                    "Room Error",
+                    "Error occurred while deleting room: " + ex.Message,
+                    MessageType.Error);
             }
         }
 
         private void btRoomUpdate_Click(object sender, EventArgs e) {
             var selectedRoom = dgvRooms.CurrentRow?.DataBoundItem as RoomModel;
+            if (selectedRoom == null) {
+                AppMessageBox.Show(
+                    this,
+                    "Select a Room",
+                    "Please select a room to update.",
+                    MessageType.Warning);
+                return;
+            }
 
             RoomType roomTypeSelected = (RoomType)roomType.SelectedItem!;
             RoomStatus roomStatusSelected = (RoomStatus)roomStatus.SelectedItem!;
@@ -149,8 +198,29 @@ namespace Hotel_Management.RoomManagement {
                 _roomService.LoadRoom();
                 LoadDgvRooms();
                 UpdateRoomSummary();
+                AppMessageBox.Show(
+                    this,
+                    "Room Updated",
+                    "Room updated successfully.",
+                    MessageType.Success);
+            } catch (ArgumentException ex) {
+                AppMessageBox.Show(
+                    this,
+                    "Validation Error",
+                    ex.Message,
+                    MessageType.Warning);
+            } catch (FormatException) {
+                AppMessageBox.Show(
+                    this,
+                    "Validation Error",
+                    "Please enter valid numeric values.",
+                    MessageType.Warning);
             } catch (Exception ex) {
-                MessageBox.Show("Error occurred while updating room: " + ex.Message);
+                AppMessageBox.Show(
+                    this,
+                    "Room Error",
+                    "Error occurred while updating room: " + ex.Message,
+                    MessageType.Error);
             }
         }
         public void ClearFormFields() {
@@ -220,6 +290,7 @@ namespace Hotel_Management.RoomManagement {
             dgvRooms.Columns["RoomType"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Stretches to fill space
             dgvRooms.Columns["Price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvRooms.Columns["Status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dgvRooms.Columns["RoomDisplay"].Dispose3.
 
             //dgvRooms.Columns["Status"].
         }

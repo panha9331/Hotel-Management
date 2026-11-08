@@ -5,28 +5,26 @@ using Hotel_Management.Services;
 using Hotel_Management.Data;
 
 
-namespace Hotel_Management
-{
-    static class NativeMethods
-    {
+namespace Hotel_Management {
+    static class NativeMethods {
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool AllocConsole();
     }
-    internal static class Program
-    {
+    internal static class Program {
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main() {
 
-        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             // 1. Open the console window when running in Debug mode
-        #if DEBUG
-            NativeMethods.AllocConsole();
-            Console.WriteLine("==> Console initialized successfully!");
-        #endif
+        //#if DEBUG
+        //    NativeMethods.AllocConsole();
+        //    Console.WriteLine("==> Console initialized successfully!");
+        //#endif
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
@@ -39,10 +37,20 @@ namespace Hotel_Management
 
             var roomService = new RoomService(roomRepository, stateModel);
 
-            roomService.LoadRoom();
+
+            try {
 
 
-            Application.Run(new Main());
+                DatabaseInitializer.Initialize();
+                Application.Run(new Main());
+            } catch (Exception ex) {
+                MessageBox.Show(
+                    ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
     }
 }

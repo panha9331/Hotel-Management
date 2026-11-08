@@ -675,7 +675,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvRooms.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvRooms.RowHeadersWidth = 51;
-            dgvRooms.ScrollBars = ScrollBars.Horizontal;
+            dgvRooms.ScrollBars = ScrollBars.Vertical;
             dgvRooms.Size = new Size(805, 481);
             dgvRooms.TabIndex = 6;
             dgvRooms.SelectionChanged += dgvRooms_SelectionChanged;

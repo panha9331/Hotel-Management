@@ -23,7 +23,7 @@ namespace Hotel_Management.Services {
             keyword = keyword.Trim();
 
             return customers.Where(
-                c => c.CustomerID.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                c => c.CustomerId.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
                  c.CustomerName.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
                  c.Gender.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
                  c.Email.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
@@ -58,7 +58,7 @@ namespace Hotel_Management.Services {
         }
         public int GetNextCustomerId() {
             var customers = _stateModel.Customers;
-            var nextCustomerId = customers.Any() ? customers.Max(r => r.CustomerID) + 1 : 1;
+            var nextCustomerId = customers.Any() ? customers.Max(r => r.CustomerId) + 1 : 1;
             return nextCustomerId;
         }
         public CustomerService(

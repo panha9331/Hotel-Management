@@ -1,4 +1,5 @@
-﻿using Hotel_Management.Models;
+﻿using Hotel_Management.Helpers;
+using Hotel_Management.Models;
 using Hotel_Management.Repositories;
 using Hotel_Management.Services;
 using Hotel_Management.State;
@@ -49,21 +50,37 @@ namespace Hotel_Management.Controls {
 
                 _customerService.LoadCustomer();
                 LoadDgvCustomer();
-                MessageBox.Show("Customer added successfully.");
+                AppMessageBox.Show(
+                    this,
+                    "Customer Added",
+                    "Customer added successfully.",
+                    MessageType.Success);
 
                 GetNextCustomerId();
             } catch (ArgumentException ex) {
-                MessageBox.Show(
-                    ex.Message,
+                AppMessageBox.Show(
+                    this,
                     "Validation Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                    ex.Message,
+                    MessageType.Warning);
             } catch (FormatException) {
-                MessageBox.Show(
-                    "Please enter valid numeric values.");
+                AppMessageBox.Show(
+                    this,
+                    "Validation Error",
+                    "Please enter valid numeric values.",
+                    MessageType.Warning);
             } catch (System.Data.SqlClient.SqlException) {
-                MessageBox.Show(
-                    "Database operation failed. Check the database and customer data.");
+                AppMessageBox.Show(
+                    this,
+                    "Database Error",
+                    "Database operation failed. Check the database and customer data.",
+                    MessageType.Error);
+            } catch (Exception ex) {
+                AppMessageBox.Show(
+                    this,
+                    "Customer Error",
+                    ex.Message,
+                    MessageType.Error);
             }
 
             UpdateCustomerSummary();
@@ -71,10 +88,18 @@ namespace Hotel_Management.Controls {
         private void btUpdateCustomer_Click(object sender, EventArgs e) {
 
             var selectedCustomer = dgvCustomers.CurrentRow?.DataBoundItem as CustomerModel;
+            if (selectedCustomer == null) {
+                AppMessageBox.Show(
+                    this,
+                    "Select a Customer",
+                    "Please select a customer to update.",
+                    MessageType.Warning);
+                return;
+            }
 
             try {
                 _customerService.UpdateCustomer(
-                    selectedCustomer.CustomerID,
+                    selectedCustomer.CustomerId,
                     txtCustomerName.Text,
                     cbGender.Text.Trim(),
                     txtPhone.Text.Trim(),
@@ -85,21 +110,60 @@ namespace Hotel_Management.Controls {
                 LoadDgvCustomer();
                 UpdateCustomerSummary();
 
+                AppMessageBox.Show(
+                    this,
+                    "Customer Updated",
+                    "Customer updated successfully.",
+                    MessageType.Success);
+            } catch (ArgumentException ex) {
+                AppMessageBox.Show(
+                    this,
+                    "Validation Error",
+                    ex.Message,
+                    MessageType.Warning);
             } catch (Exception ex) {
-                Console.WriteLine("[UPDATING ERROR]: " + ex);
+                AppMessageBox.Show(
+                    this,
+                    "Customer Error",
+                    "Error occurred while updating customer: " + ex.Message,
+                    MessageType.Error);
             }
         }
 
         private void btDeleteCustomer_Click(object sender, EventArgs e) {
             var selectedCustomer = dgvCustomers.CurrentRow?.DataBoundItem as CustomerModel;
+            if (selectedCustomer == null) {
+                AppMessageBox.Show(
+                    this,
+                    "Select a Customer",
+                    "Please select a customer to delete.",
+                    MessageType.Warning);
+                return;
+            }
+
             try {
-                _customerService.DeleteCustomer(selectedCustomer.CustomerID);
+                _customerService.DeleteCustomer(selectedCustomer.CustomerId);
 
                 _customerService.LoadCustomer();
                 LoadDgvCustomer();
                 UpdateCustomerSummary();
+                AppMessageBox.Show(
+                    this,
+                    "Customer Deleted",
+                    "Customer deleted successfully.",
+                    MessageType.Success);
             } catch (ArgumentException ex) {
-                Console.WriteLine("[UPDATING ERROR]: " + ex);
+                AppMessageBox.Show(
+                    this,
+                    "Validation Error",
+                    ex.Message,
+                    MessageType.Warning);
+            } catch (Exception ex) {
+                AppMessageBox.Show(
+                    this,
+                    "Customer Error",
+                    "Error occurred while deleting customer: " + ex.Message,
+                    MessageType.Error);
             }
         }
 
@@ -216,6 +280,20 @@ namespace Hotel_Management.Controls {
         private void txtCustomerName_Enter(object sender, EventArgs e) {
             if (txtCustomerName.Text == "e.g. Moeurn Panha") {
                 txtCustomerName.Clear();
+            }
+        }
+
+        private void dgvCustomers_SelectionChanged(object sender, EventArgs e) {
+            ReloadTextField();
+        }
+        private void ReloadTextField() {
+            var selectedCustomer = dgvCustomers.CurrentRow?.DataBoundItem as CustomerModel;
+            if (selectedCustomer != null) {
+                txtCustomerId.Text = selectedCustomer.CustomerId.ToString();
+                txtCustomerName.Text = selectedCustomer.CustomerName;
+                cbGender.SelectedItem = selectedCustomer.Gender;
+                txtPhone.Text = selectedCustomer.Phone;
+                txtEmail.Text = selectedCustomer.Email;
             }
         }
     }

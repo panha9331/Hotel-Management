@@ -25,7 +25,7 @@ namespace Hotel_Management.Repositories
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read()) {
                     customers.Add(new CustomerModel {
-                        CustomerID = Convert.ToInt32(reader["customer_id"]),
+                        CustomerId = Convert.ToInt32(reader["customer_id"]),
                         CustomerName = reader["name"].ToString()!,
                         Gender = reader["gender"].ToString()!,
                         Phone = reader["phone"].ToString()!,

@@ -30,9 +30,9 @@ namespace Hotel_Management.Controls
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             cbGender = new ComboBox();
             btUpdateCustomer = new Krypton.Toolkit.KryptonButton();
             btClear = new MaterialSkin.Controls.MaterialButton();
@@ -58,6 +58,9 @@ namespace Hotel_Management.Controls
             lbTotalFemale = new Label();
             label7 = new Label();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
+            label4 = new Label();
+            label3 = new Label();
+            label19 = new Label();
             label16 = new Label();
             label15 = new Label();
             txtEmail = new Krypton.Toolkit.KryptonMaskedTextBox();
@@ -70,9 +73,6 @@ namespace Hotel_Management.Controls
             label13 = new Label();
             label11 = new Label();
             label1 = new Label();
-            label19 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             materialCard6.SuspendLayout();
             materialCard7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
@@ -246,42 +246,43 @@ namespace Hotel_Management.Controls
             // 
             dgvCustomers.AllowUserToAddRows = false;
             dgvCustomers.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Red;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Red;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCustomers.Cursor = Cursors.Hand;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvCustomers.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvCustomers.DefaultCellStyle = dataGridViewCellStyle2;
             dgvCustomers.Dock = DockStyle.Fill;
             dgvCustomers.EnableHeadersVisualStyles = false;
             dgvCustomers.Location = new Point(16, 16);
             dgvCustomers.Name = "dgvCustomers";
             dgvCustomers.ReadOnly = true;
             dgvCustomers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Lime;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvCustomers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Lime;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvCustomers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvCustomers.RowHeadersWidth = 51;
-            dgvCustomers.ScrollBars = ScrollBars.Horizontal;
+            dgvCustomers.ScrollBars = ScrollBars.Vertical;
             dgvCustomers.Size = new Size(805, 481);
             dgvCustomers.TabIndex = 7;
+            dgvCustomers.SelectionChanged += dgvCustomers_SelectionChanged;
             // 
             // btAddCustomer
             // 
@@ -491,6 +492,39 @@ namespace Hotel_Management.Controls
             materialCard4.Size = new Size(390, 608);
             materialCard4.TabIndex = 13;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(338, 319);
+            label4.Name = "label4";
+            label4.Size = new Size(20, 25);
+            label4.TabIndex = 14;
+            label4.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(338, 150);
+            label3.Name = "label3";
+            label3.Size = new Size(20, 25);
+            label3.TabIndex = 14;
+            label3.Text = "*";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.Red;
+            label19.Location = new Point(338, 67);
+            label19.Name = "label19";
+            label19.Size = new Size(20, 25);
+            label19.TabIndex = 14;
+            label19.Text = "*";
+            // 
             // label16
             // 
             label16.AutoSize = true;
@@ -638,39 +672,6 @@ namespace Hotel_Management.Controls
             label1.Size = new Size(265, 31);
             label1.TabIndex = 6;
             label1.Text = "Customer Management";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.ForeColor = Color.Red;
-            label19.Location = new Point(338, 67);
-            label19.Name = "label19";
-            label19.Size = new Size(20, 25);
-            label19.TabIndex = 14;
-            label19.Text = "*";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Red;
-            label3.Location = new Point(338, 150);
-            label3.Name = "label3";
-            label3.Size = new Size(20, 25);
-            label3.TabIndex = 14;
-            label3.Text = "*";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Red;
-            label4.Location = new Point(338, 319);
-            label4.Name = "label4";
-            label4.Size = new Size(20, 25);
-            label4.TabIndex = 14;
-            label4.Text = "*";
             // 
             // CustomerControl
             // 

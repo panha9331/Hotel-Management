@@ -27,12 +27,13 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label15 = new Label();
             label14 = new Label();
-            txtRoomId = new Krypton.Toolkit.KryptonMaskedTextBox();
+            txtReservationId = new Krypton.Toolkit.KryptonMaskedTextBox();
             label10 = new Label();
             label12 = new Label();
             label13 = new Label();
@@ -77,6 +78,7 @@
             label9 = new Label();
             lbTotalRoom = new Label();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            timer1 = new System.Windows.Forms.Timer(components);
             materialCard2.SuspendLayout();
             materialCard5.SuspendLayout();
             materialCard4.SuspendLayout();
@@ -108,21 +110,21 @@
             label14.TabIndex = 0;
             label14.Text = "Room Selection";
             // 
-            // txtRoomId
+            // txtReservationId
             // 
-            txtRoomId.Cursor = Cursors.IBeam;
-            txtRoomId.Location = new Point(32, 99);
-            txtRoomId.Name = "txtRoomId";
-            txtRoomId.Size = new Size(205, 38);
-            txtRoomId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
-            txtRoomId.StateActive.Border.Rounding = 8F;
-            txtRoomId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.StateCommon.Back.Color1 = Color.FromArgb(224, 224, 224);
-            txtRoomId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRoomId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtRoomId.TabIndex = 4;
-            txtRoomId.Text = "100";
+            txtReservationId.Cursor = Cursors.IBeam;
+            txtReservationId.Location = new Point(32, 99);
+            txtReservationId.Name = "txtReservationId";
+            txtReservationId.Size = new Size(205, 38);
+            txtReservationId.StateActive.Border.Color1 = Color.FromArgb(224, 224, 224);
+            txtReservationId.StateActive.Border.Rounding = 8F;
+            txtReservationId.StateActive.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtReservationId.StateCommon.Back.Color1 = Color.FromArgb(224, 224, 224);
+            txtReservationId.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtReservationId.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtReservationId.StateNormal.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtReservationId.TabIndex = 4;
+            txtReservationId.Text = "100";
             // 
             // label10
             // 
@@ -266,7 +268,7 @@
             materialCard4.Controls.Add(label17);
             materialCard4.Controls.Add(label14);
             materialCard4.Controls.Add(label22);
-            materialCard4.Controls.Add(txtRoomId);
+            materialCard4.Controls.Add(txtReservationId);
             materialCard4.Controls.Add(label10);
             materialCard4.Controls.Add(label12);
             materialCard4.Controls.Add(label13);
@@ -357,6 +359,7 @@
             checkOutDate.StateNormal.Border.Rounding = 4F;
             checkOutDate.StateNormal.Content.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             checkOutDate.TabIndex = 6;
+            checkOutDate.ValueChanged += checkOutDate_ValueChanged;
             // 
             // btCheckIn
             // 
@@ -394,6 +397,8 @@
             checkInDate.StateNormal.Border.Rounding = 4F;
             checkInDate.StateNormal.Content.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             checkInDate.TabIndex = 6;
+            checkInDate.ValueNullable = new DateTime(2026, 10, 28, 22, 38, 52, 0);
+            checkInDate.ValueChanged += checkInDate_ValueChanged;
             // 
             // cbReservationStatus
             // 
@@ -442,6 +447,7 @@
             cbRoomSelection.Sorted = true;
             cbRoomSelection.TabIndex = 4;
             cbRoomSelection.Text = "Room 101 - Single ($20night)";
+            cbRoomSelection.SelectedIndexChanged += cbRoomSelection_SelectedIndexChanged;
             // 
             // btCheckOut
             // 
@@ -598,13 +604,13 @@
             filterByStatus.FlatStyle = FlatStyle.System;
             filterByStatus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             filterByStatus.FormattingEnabled = true;
-            filterByStatus.Items.AddRange(new object[] { "Cancelled", "Checked-In", "Checked-Out", "Reserved" });
+            filterByStatus.Items.AddRange(new object[] { "All Statuses", "Cancelled", "Checked-In", "Checked-Out", "Reserved" });
             filterByStatus.Location = new Point(487, 23);
             filterByStatus.Name = "filterByStatus";
             filterByStatus.Size = new Size(119, 36);
             filterByStatus.Sorted = true;
             filterByStatus.TabIndex = 4;
-            filterByStatus.Text = "All Statuses";
+            filterByStatus.SelectedIndexChanged += filterByStatus_SelectedIndexChanged;
             // 
             // txtSearch
             // 
@@ -619,6 +625,9 @@
             txtSearch.StateNormal.Border.Rounding = 8F;
             txtSearch.TabIndex = 1;
             txtSearch.Text = "Search by Reservaion ID, Customer, Room ...";
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            txtSearch.Enter += txtSearch_Enter;
+            txtSearch.Leave += txtSearch_Leave;
             // 
             // btRest
             // 
@@ -640,6 +649,7 @@
             btRest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btRest.UseAccentColor = false;
             btRest.UseVisualStyleBackColor = true;
+            btRest.Click += btRest_Click;
             // 
             // materialCard7
             // 
@@ -693,9 +703,10 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvReservations.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvReservations.RowHeadersWidth = 51;
-            dgvReservations.ScrollBars = ScrollBars.Horizontal;
+            dgvReservations.ScrollBars = ScrollBars.Vertical;
             dgvReservations.Size = new Size(718, 481);
             dgvReservations.TabIndex = 8;
+            dgvReservations.DataBindingComplete += dgvReservations_DataBindingComplete;
             dgvReservations.SelectionChanged += dgvReservations_SelectionChanged;
             // 
             // materialCard3
@@ -798,7 +809,7 @@
 
         private Label label15;
         private Label label14;
-        private Krypton.Toolkit.KryptonMaskedTextBox txtRoomId;
+        private Krypton.Toolkit.KryptonMaskedTextBox txtReservationId;
         private Label label10;
         private Label label12;
         private Label label13;
@@ -843,5 +854,6 @@
         private Label label18;
         private Label label17;
         private DataGridView dgvReservations;
+        private System.Windows.Forms.Timer timer1;
     }
 }

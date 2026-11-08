@@ -115,6 +115,12 @@ namespace Hotel_Management.Services {
                 roomStatus.Trim());
         }
 
+        public void UpdateRoomStatus(int roomId, string roomStatus) {
+            if (!Enum.IsDefined(typeof(RoomStatus), roomStatus))
+                throw new ArgumentException("Invalid room status.");
+
+            _roomRepository.UpdateRoomStatus(roomId, roomStatus);
+        }
         public void UpdateRoom(
             int roomId,
             int roomNumber,

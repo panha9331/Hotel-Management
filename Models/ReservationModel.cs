@@ -5,6 +5,13 @@ using System.Text;
 
 namespace Hotel_Management.Models
 {
+
+    public class ReservationSummary {
+        public int TotalReservation { get; set; }
+        public int TotalReserved { get; set; }
+        public int TotalCheckedIn { get; set; }
+        public int TotalCheckedOut { get; set; }
+    }
     public class ReservationModel
     {
 

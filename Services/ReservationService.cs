@@ -4,6 +4,7 @@ using Hotel_Management.State;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xceed.Wpf.Toolkit.PropertyGrid.Converters;
 
 namespace Hotel_Management.Services {
     public class ReservationService {
@@ -14,6 +15,52 @@ namespace Hotel_Management.Services {
             _reservationRepository = reservationRepository;
         }
 
+        public IEnumerable<ReservationModel> SearchReservations(string? keyword) {
+            IEnumerable<ReservationModel> reservations = _stateModel.Reservations;
+
+            if (string.IsNullOrWhiteSpace(keyword)) {
+                return reservations;
+            }
+
+            keyword = keyword.Trim();
+
+            return reservations.Where(r => r.ReservationId.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                                    r.RoomId.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                                    r.CustomerId.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                                    r.ReservationStatus.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase)
+                                    //r.RoomId.ToString().Contains(keyword, StringComparison.OrdinalIgnoreCase)
+            );
+        }
+        public IEnumerable<ReservationModel> FilterByStatus(string? status) {
+            IEnumerable<ReservationModel> reservations = _stateModel.Reservations;
+
+            if(!string.IsNullOrWhiteSpace(status) && status != "All Statuses") {
+                reservations = reservations.Where(r => r.ReservationStatus == status);
+            }
+
+            return reservations.ToList();   
+        }
+        public ReservationSummary GetReservationSummary() {
+            var reservations = _stateModel.Reservations;
+
+
+            var summary = new ReservationSummary {
+                TotalReservation = reservations.Count(),
+                TotalReserved = reservations.Count(r => r.ReservationStatus.Equals("Reserved", StringComparison.OrdinalIgnoreCase)),
+                TotalCheckedIn = reservations.Count(r => r.ReservationStatus.Equals("Checked-In", StringComparison.OrdinalIgnoreCase)),
+                TotalCheckedOut = reservations.Count(r => r.ReservationStatus.Equals("Checked-Out", StringComparison.OrdinalIgnoreCase) ||
+                                                          r.ReservationStatus.Equals("Cancelled", StringComparison.OrdinalIgnoreCase)),
+                
+            };
+
+            return summary;
+        }
+        public int GetNextReservationId() {
+            var reservations = _stateModel.Reservations;
+            var nextReservations = reservations.Any() ? reservations.Max(r => r.ReservationId) + 1 : 1;
+            return nextReservations;
+        }
+
         public void ChcekInOut(int reservationId, string? status) {
             ValidateCheckInOut(reservationId, status);
             _reservationRepository.CheckInOut(reservationId, status);
@@ -21,6 +68,12 @@ namespace Hotel_Management.Services {
         public IEnumerable<CustomerModel> LoadCustomersSelection() {
             //Load customers to selection 
             return _stateModel.Customers.ToList();
+        }
+
+        public IEnumerable<RoomModel> LoadAvialableRoom() {
+            //Load available rooms to selection 
+            IEnumerable<RoomModel> rooms = _stateModel.Rooms;
+            return rooms.Where(r => r.Status.Equals(RoomStatus.Available)).ToList();
         }
         public IEnumerable<RoomModel> LoadRoomsSelection() {
             //Load customers to selection 

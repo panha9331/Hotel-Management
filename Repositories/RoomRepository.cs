@@ -39,6 +39,27 @@ namespace Hotel_Management.Repositories
                 Console.WriteLine("[CREATE ERROR] " + ex.Message);
             }
         }
+
+        public void UpdateRoomStatus(int roomId, string roomStatus) {
+            string query = @"
+                UPDATE dbo.ROOMS 
+                SET room_status = @status 
+                WHERE room_id = @id";
+            using var connection = DatabaseConnection.GetConnection();
+            using var cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", roomId);
+            cmd.Parameters.AddWithValue("@status", roomStatus);
+            try {
+                connection.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected == 0) {
+                    Console.WriteLine("[UPDATE STATUS WARNING] No record found with room_id: " + roomId);
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("[UPDATE STATUS ERROR] " + ex.Message);
+            }
+        }
+        
         public void UpdateRoom(
             int roomId,
             int roomNumber,

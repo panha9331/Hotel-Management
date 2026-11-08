@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using Hotel_Management.Data;
-using System.Data.SqlClient;
+﻿using Hotel_Management.Data;
 using Hotel_Management.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 
 namespace Hotel_Management.Repositories {
     public class ReservationRepository {
+            
+        
 
         public void CheckInOut(
             int reservationId,
