@@ -42,8 +42,8 @@ namespace Hotel_Management {
             _reservationService = new ReservationService(_reservationRepository, _stateModel);
 
 
-            //LoadControl(new RoomControl(_roomService, _roomRepository));
-            //lblPageTitle.Text = "Room Management";
+            LoadControl(new DashboardControl(_roomService, _customerService, _reservationService));
+            lblPageTitle.Text = "Dashboard Overview";
 
             //ConfigureMenuButton(btDashboard);
             //ConfigureMenuButton(btRoom);
@@ -70,6 +70,8 @@ namespace Hotel_Management {
 
 
         private void Main_Load(object sender, EventArgs e) {
+            LoadControl(new DashboardControl(_roomService, _customerService, _reservationService));
+            lblPageTitle.Text = "Dashboard Overview";
         }
 
         private void materialButton1_Click(object sender, EventArgs e) {
@@ -78,6 +80,11 @@ namespace Hotel_Management {
 
         private void lblPageTitle_Click(object sender, EventArgs e) {
 
+        }
+
+        private void btDashboard_Click(object sender, EventArgs e) {
+            LoadControl(new DashboardControl(_roomService, _customerService, _reservationService));
+            lblPageTitle.Text = "Dashboard Overview";
         }
 
         private void btRoom_Click(object sender, EventArgs e) {
@@ -195,5 +202,7 @@ namespace Hotel_Management {
                 picAccountHover.Visible = false;
             }
         }
+
+        
     }
 }

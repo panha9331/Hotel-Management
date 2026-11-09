@@ -348,6 +348,7 @@ namespace Hotel_Management
             btDashboard.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btDashboard.UseAccentColor = false;
             btDashboard.UseVisualStyleBackColor = false;
+            btDashboard.Click += btDashboard_Click;
             // 
             // panel4
             // 
