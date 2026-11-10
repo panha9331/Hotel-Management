@@ -1,6 +1,10 @@
 ﻿using Hotel_Management.Models;
 using Hotel_Management.Services;
+using LiveChartsCore.Measure;
 using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.SKCharts;
+using SkiaSharp;
 
 namespace Hotel_Management;
 
@@ -148,18 +152,37 @@ public partial class DashboardControl : UserControl
         label8.Text = "Reservations - Last 6 Months";
         label12.Text = "Booked Revenue - Last 7 Days";
 
+        label4.Left = (materialCard6.ClientSize.Width - label4.Width) / 2;
+        pieChart1.Legend = new SKDefaultLegend { IsValid = true };
+        pieChart1.LegendPosition = LegendPosition.Right;
         pieChart1.Location = new Point(19, 47);
         pieChart1.Size = new Size(
             materialCard6.ClientSize.Width - 38,
             materialCard6.ClientSize.Height - 60);
-        pieChart1.LegendPosition = LiveChartsCore.Measure.LegendPosition.Right;
+        var totalRooms = _rooms.Count;
         pieChart1.Series = _rooms
             .GroupBy(room => room.RoomType)
-            .OrderBy(group => group.Key)
+            .OrderBy(group => group.Key switch
+            {
+                RoomType.Suite => 0,
+                RoomType.Double => 1,
+                RoomType.Family => 2,
+                RoomType.Twin => 3,
+                RoomType.Single => 4,
+                RoomType.Vip => 5,
+                _ => 6
+            })
             .Select(group => new PieSeries<int>
             {
                 Name = group.Key.ToString(),
-                Values = [group.Count()]
+                Values = [group.Count()],
+                Fill = new SolidColorPaint(GetRoomTypeColor(group.Key)),
+                Stroke = new SolidColorPaint(SKColors.White, 3),
+                DataLabelsPaint = new SolidColorPaint(SKColors.White),
+                DataLabelsSize = 14,
+                DataLabelsFormatter = point => totalRooms == 0
+                    ? "0%"
+                    : $"{point.Coordinate.PrimaryValue / totalRooms:P0}"
             })
             .ToArray();
 
@@ -242,6 +265,17 @@ public partial class DashboardControl : UserControl
 
     private static bool IsCancelled(string status) =>
         status.Equals("Cancelled", StringComparison.OrdinalIgnoreCase);
+
+    private static SKColor GetRoomTypeColor(RoomType roomType) => roomType switch
+    {
+        RoomType.Suite => SKColor.Parse("#1E88E5"),
+        RoomType.Double => SKColor.Parse("#00ACC1"),
+        RoomType.Family => SKColor.Parse("#26A69A"),
+        RoomType.Twin => SKColor.Parse("#66BB6A"),
+        RoomType.Single => SKColor.Parse("#5E35B1"),
+        RoomType.Vip => SKColor.Parse("#EF6C00"),
+        _ => SKColors.SlateGray
+    };
 
     private static decimal GetRevenueInPeriod(
         ReservationModel reservation,
